@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1 class="jumbotron">Hello Vue</h1>
+    <h1 class="text-muted ml-2">Hello Vue</h1>
   </div>
 </template>
 
