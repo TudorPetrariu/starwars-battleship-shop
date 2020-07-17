@@ -1,12 +1,21 @@
 <template>
-  <div id="app">
-    <h1 class="text-muted ml-2">Hello Vue</h1>
+  <div>
+    <app-header></app-header>
+    <starship-list></starship-list>
+    <app-footer />
   </div>
 </template>
 
 <script>
+import TheHeader from './common/components/TheHeader.vue'
+import TheFooter from './common/components/TheFooter.vue'
+import StarShipList from './common/components/starships/StarShipList'
 
-export default {}
+export default {
+  components: {
+    'app-header': TheHeader,
+    'app-footer': TheFooter,
+    'starship-list': StarShipList
+  }
+}
 </script>
-
-<style lang="scss"></style>
