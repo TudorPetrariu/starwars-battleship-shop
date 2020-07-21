@@ -1,5 +1,6 @@
 <template>
-  
+    <div>Starships List Page</div>
+
 </template>
 
 <script>
