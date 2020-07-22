@@ -1,3 +1,6 @@
+
+import { mockedData } from '../../assets/mock-data.js'
+
 const state = {
   starWarsBattleships: {}
 }
@@ -15,12 +18,14 @@ const mutations = {
 
 const actions = {
   async fetchBattleShips ({ commit }) {
-    const corsAnywhere = 'https://cors-anywhere.herokuapp.com/'
-    const url = 'https://swapi.dev/api/starships'
+    // const corsAnywhere = 'https://cors-anywhere.herokuapp.com/'
+    // const url = 'https://swapi.dev/api/starships/?format=json'
     try {
-      const response = await fetch(`${url}`)
-      const data = await response.json()
-      commit('setBattleships', data.results)
+     const searchVacancies = await new Promise(resolve => {
+        setTimeout(() => {
+          commit('setBattleships', mockedData.results)
+        }, 800)
+      })
     } catch (error) {
       console.log(error)
     }

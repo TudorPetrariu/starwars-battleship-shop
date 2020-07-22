@@ -1,22 +1,20 @@
 <template>
   <div>
-    <h1>Starships List</h1>
-    <battleship-item v-for="ship in getBattleShips" :key="ship.name" :ship="ship"></battleship-item>
+    <div> {{ship.name}}</div>
+    <p> Model: {{ship.model}}</p>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import StarShipItem from '../starships/StarShipItem'
 
 export default {
+  props:['ship'],
   data () {
     return {
     }
   },
-  components: {
-    'battleship-item': StarShipItem
-  },
+  methods: { ...mapActions('battleships', ['fetchBattleShips']) },
   computed: { ...mapGetters('battleships', ['getBattleShips']) }
 }
 </script>
