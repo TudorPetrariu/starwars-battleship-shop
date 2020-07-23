@@ -3,7 +3,6 @@
     <div class="row">
       <div class="col-12">
         <app-header></app-header>
-
         <router-view></router-view>
         <app-footer />
       </div>
@@ -12,24 +11,20 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
-
 import TheHeader from './common/components/TheHeader.vue'
 import TheFooter from './common/components/TheFooter.vue'
 import StarShipList from './common/components/starships/StarShipList'
-import StarShipItem from './common/components/starships/StarShipItem'
+import StarShipDetailsPage from './common/components/starships/StarShipDetailsPage'
 
 export default {
   components: {
     'app-header': TheHeader,
     'app-footer': TheFooter,
     'starship-list': StarShipList,
-    'starship-item': StarShipItem
+    'starship-details': StarShipDetailsPage
   },
-  methods: { ...mapActions('battleships', ['fetchBattleShips']) },
-
   created () {
-    this.fetchBattleShips()
+    this.$store.dispatch('battleships/fetchBattleShips')
   }
 }
 </script>
