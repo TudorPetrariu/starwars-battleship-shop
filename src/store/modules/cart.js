@@ -1,10 +1,19 @@
 const state = {
-  cart:{}
+  cart: []
 }
 
 const mutations = {
-  setItemToCart (state, payload) {
-    state.cart = payload
+  setItemToCart (state, { name, price, quantity }) {
+    const record = state.cart.find(element => element.name === name)
+    if (record) {
+      record.quantity = Number(quantity) + Number(record.quantity)
+    } else {
+      state.cart.push({
+        name,
+        quantity,
+        price
+      })
+    }
   }
 }
 

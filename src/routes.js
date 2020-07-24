@@ -15,9 +15,7 @@ export const routes = [
     component: StarShipDetailsPage,
     name: 'StarShipDetailsPage'
   },
-  { path: '/cart', component: Cart, name: 'Cart', props: true },
+  { path: '/cart', component: Cart, name: 'Cart' },
 
   { path: '*', redirect: '/' }
 ]
-
-

@@ -18,8 +18,8 @@ export default {
   methods: {
     addItemToCart () {
       const order = {
-        shipId: this.ship.name,
-        shipPrice: this.ship.cost_in_credits,
+        name: this.ship.name,
+        price: this.ship.cost_in_credits,
         quantity: this.quantity
       }
       this.$store.commit('cart/setItemToCart', order)

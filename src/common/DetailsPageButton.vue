@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-button
-      @click="checkShipDetails"
+      @click="setShipDetails"
       :to="{ name: 'StarShipDetailsPage', params: { id: ship.name } }"
       variant="outline-primary"
       >Visit Details</b-button
@@ -13,7 +13,7 @@
 export default {
   props: ['ship'],
   methods: {
-    checkShipDetails () {
+    setShipDetails () {
       const shipDetails = this.ship
       this.$store.commit('battleships/setShipDetails', shipDetails)
     }

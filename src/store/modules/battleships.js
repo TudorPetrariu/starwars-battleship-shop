@@ -2,7 +2,7 @@ import { mockedData } from '../../assets/mock-data.js'
 
 export const state = {
   starWarsBattleships: {},
-  recentSearch: ''
+  recentSearch: {}
 }
 
 const getters = {
@@ -16,6 +16,7 @@ const getters = {
 const mutations = {
   setBattleships: (state, payload) => {
     state.starWarsBattleships = payload.results
+    console.log(payload)
   },
   setShipDetails: (state, payload) => {
     state.recentSearch = payload
@@ -28,7 +29,7 @@ const actions = {
       await new Promise(resolve => {
         setTimeout(() => {
           commit('setBattleships', mockedData)
-        }, 800)
+        }, 500)
       })
     } catch (error) {
       console.log(error)
