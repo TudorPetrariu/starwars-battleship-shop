@@ -1,24 +1,18 @@
 <template>
   <div>
     <h1>Starships getBattleShips</h1>
-    <div class="card" v-for="ship in getBattleShips" :key="ship.name">
-      <li>{{ ship.name }}</li>
-      <div>
-        <add-to-cart :ship="ship"></add-to-cart>
-        <details-page-button :ship="ship"></details-page-button>
-      </div>
-    </div>
+    <starship-item :ship="ship" v-for="ship in getBattleShips" :key="ship.name" ></starship-item>
   </div>
 </template>
 
 <script>
 import AddToCart from '../../AddToCart.vue'
-import DetailsPageButton from '../../DetailsPageButton.vue'
+import StarShipItem from './StarShipItem.vue'
 
 export default {
   components: {
     'add-to-cart': AddToCart,
-    'details-page-button': DetailsPageButton
+    'starship-item': StarShipItem
   },
   computed: {
     getBattleShips () {

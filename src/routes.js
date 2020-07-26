@@ -4,18 +4,20 @@ import StarShipDetailsPage from './common/components/starships/StarShipDetailsPa
 import Cart from './common/Cart.vue'
 
 export const routes = [
-  { path: '', component: Home, name: 'Home' },
+  { path: '/', component: Home, name: 'Home' },
   {
     path: '/starships',
     component: StarShipList,
     name: 'StarShipList'
   },
+  { path: '/cart', component: Cart, name: 'Cart' },
+
   {
     path: '/starships/:id',
     component: StarShipDetailsPage,
-    name: 'StarShipDetailsPage'
+    name: 'StarShipDetailsPage',
+    props:true
   },
-  { path: '/cart', component: Cart, name: 'Cart' },
 
   { path: '*', redirect: '/' }
 ]

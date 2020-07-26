@@ -1,8 +1,12 @@
 <template>
   <div>
     <input type="text" v-model="quantity" />
-    <button :disabled="quantity <= 0" @click="addItemToCart" class="btn-succes">
-      Add Items to Cart
+    <button
+      :disabled="quantity <= 0"
+      @click="addItemToCart"
+      class="btn-succes"
+    >
+      Add to Cart
     </button>
   </div>
 </template>

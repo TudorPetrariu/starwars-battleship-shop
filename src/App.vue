@@ -1,12 +1,12 @@
 <template>
   <div class="container">
+    <app-header></app-header>
     <div class="row">
       <div class="col-12">
-        <app-header></app-header>
         <router-view></router-view>
-        <app-footer />
       </div>
     </div>
+    <app-footer />
   </div>
 </template>
 

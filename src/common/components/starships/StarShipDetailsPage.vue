@@ -1,20 +1,15 @@
 <template>
   <div class="jumbotron bg-info">
-    <h1>This is the details Page</h1>
-    <div class="text-white">Details : {{ BattleShipDetails }}</div>
+    <h1>Battleship Details page</h1>
+    <strong>{{ id }}</strong>
   </div>
 </template>
 
 <script>
-
 export default {
+  props: ['id'],
   data () {
     return {}
-  },
-  computed: {
-    BattleShipDetails () {
-      return this.$store.getters['battleships/getBattleShipDetails']
-    }
   }
 }
 </script>

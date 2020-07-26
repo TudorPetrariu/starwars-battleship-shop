@@ -5,11 +5,11 @@
       <b-nav-item active-class="active" exact :to="{ name: 'Home' }"
         >Home
       </b-nav-item>
-      <b-nav-item active-class="active" exact :to="{ name: 'StarShipList' }">
+      <b-nav-item active-class="active" :to="{ name: 'StarShipList' }">
         StarShips
       </b-nav-item>
 
-      <b-nav-item active-class="active" exact :to="{ name: 'Cart' }">
+      <b-nav-item active-class="active" :to="{ name: 'Cart' }">
         <b-icon-cart></b-icon-cart>
       </b-nav-item>
     </b-nav>
