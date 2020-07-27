@@ -1,18 +1,24 @@
 import { mockedData } from '../../assets/mock-data.js'
 
 export const state = {
-  starWarsBattleships: {}
+  starWarsBattleships: [],
+  BattleShipInfo: []
 }
 
+const mutations = {
+  setBattleships: (state, payload) => {
+    state.starWarsBattleships = payload.results
+  }
+}
 const getters = {
   getBattleShips: state => {
     return state.starWarsBattleships
   },
-  getBattleshipDetails: () => {}
-}
-const mutations = {
-  setBattleships: (state, payload) => {
-    state.starWarsBattleships = payload.results
+  getBattleShipDetails: state => name => {
+    const findShipDetails = state.starWarsBattleships.find(
+      ship => ship.name === name
+    )
+    return findShipDetails
   }
 }
 
