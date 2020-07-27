@@ -5,21 +5,17 @@ const state = {
 const mutations = {
   setItemToCart (state, { name, price, quantity }) {
     const record = state.cart.find(element => element.name === name)
-    if (record) {
-      record.quantity = Number(quantity) + Number(record.quantity)
-    } else {
-      state.cart.push({
-        name,
-        quantity,
-        price
-      })
-    }
+    !record
+      ? state.cart.push({
+          name,
+          quantity,
+          price
+        })
+      : (record.quantity = Number(quantity) + Number(record.quantity))
   },
   removeItemFromCart (state, { name }) {
     const record = state.cart.find(element => element.name === name)
-    if (record) {
-      state.cart.splice(state.cart.indexOf(record), 1)
-    }
+    state.cart.splice(state.cart.indexOf(record), 1)
   }
 }
 

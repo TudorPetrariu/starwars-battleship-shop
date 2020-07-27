@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import AddToCart from '../../AddToCart.vue'
-import DetailsPageButton from '../../DetailsPageButton.vue'
+import AddToCart from '../common/AddToCart.vue'
+import DetailsPageButton from '../common/DetailsPageButton.vue'
 
 export default {
   props: ['ship'],

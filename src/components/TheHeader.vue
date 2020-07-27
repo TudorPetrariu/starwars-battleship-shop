@@ -8,16 +8,9 @@
       <b-nav-item active-class="active" :to="{ name: 'StarShipList' }">
         StarShips
       </b-nav-item>
-
       <b-nav-item active-class="active" :to="{ name: 'Cart' }">
         <b-icon-cart></b-icon-cart>
       </b-nav-item>
     </b-nav>
   </div>
 </template>
-
-<script>
-export default {}
-</script>
-
-<style></style>

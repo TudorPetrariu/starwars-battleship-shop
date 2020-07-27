@@ -1,11 +1,10 @@
 <template>
   <div>
     <h3>This is the cart page</h3>
-
     <div v-for="item in cartItems">
       <span> Item: {{ item.name }}</span>
       <span> Price: {{ item.price }}</span>
-      <span>Quantity: {{item.quantity}}</span>
+      <span>Quantity: {{ item.quantity }}</span>
       <details-page-button :name="item.name"></details-page-button>
       <remove-item-button :ship="item"> </remove-item-button>
     </div>
@@ -13,8 +12,8 @@
 </template>
 
 <script>
-import DetailsPageButton from './DetailsPageButton.vue'
-import RemoveItemFromCart from './RemoveItemFromCart.vue'
+import DetailsPageButton from '../common/DetailsPageButton.vue'
+import RemoveItemFromCart from '../common/RemoveItemFromCart.vue'
 
 export default {
   components: {

@@ -1,20 +1,17 @@
 <template>
   <div class="jumbotron bg-info">
     <h1>Battleship Details page</h1>
-    <div v-for="item in battleShipInfo">{{ item }}</div>
-    <add-to-cart-buttton :ship="battleShipInfo"></add-to-cart-buttton>
+    <div v-for="item in getbattleShipInfo">{{ item }}</div>
+    <add-to-cart-buttton :ship="getbattleShipInfo"></add-to-cart-buttton>
   </div>
 </template>
 <script>
-import AddToCart from '../../AddToCart.vue'
+import AddToCart from '../common/AddToCart.vue'
 export default {
   components: { 'add-to-cart-buttton': AddToCart },
   props: ['id'],
-  data () {
-    return {}
-  },
   computed: {
-    battleShipInfo () {
+    getbattleShipInfo () {
       return this.$store.getters['battleships/getBattleShipDetails'](this.id)
     }
   }

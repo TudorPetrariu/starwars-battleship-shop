@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import TheHeader from './common/components/TheHeader.vue'
-import TheFooter from './common/components/TheFooter.vue'
-import StarShipList from './common/components/starships/StarShipList'
-import StarShipDetailsPage from './common/components/starships/StarShipDetailsPage'
+import TheHeader from './components/TheHeader.vue'
+import TheFooter from './components/TheFooter.vue'
+import StarShipList from './components/starships/StarShipList.vue'
+import StarShipDetailsPage from './components/starships/StarShipDetailsPage.vue'
 
 export default {
   components: {

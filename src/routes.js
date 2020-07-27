@@ -1,7 +1,7 @@
-import Home from './common/components/Home.vue'
-import StarShipList from './common/components/starships/StarShipList.vue'
-import StarShipDetailsPage from './common/components/starships/StarShipDetailsPage.vue'
-import Cart from './common/Cart.vue'
+import Home from './components/Home.vue'
+import StarShipList from './components/starships/StarShipList.vue'
+import StarShipDetailsPage from './components/starships/StarShipDetailsPage.vue'
+import Cart from './components/cart/Cart.vue'
 
 export const routes = [
   { path: '/', component: Home, name: 'Home' },

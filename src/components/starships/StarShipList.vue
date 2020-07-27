@@ -1,12 +1,17 @@
 <template>
   <div>
     <h1>Starships getBattleShips</h1>
-    <starship-item :ship="ship" v-for="ship in getBattleShips" :key="ship.name" ></starship-item>
+    <starship-item
+      v-if="getBattleShips"
+      :ship="ship"
+      v-for="ship in getBattleShips"
+      :key="ship.name"
+    ></starship-item>
   </div>
 </template>
 
 <script>
-import AddToCart from '../../AddToCart.vue'
+import AddToCart from '../common/AddToCart.vue'
 import StarShipItem from './StarShipItem.vue'
 
 export default {

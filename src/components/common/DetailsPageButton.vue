@@ -1,8 +1,8 @@
 <template>
   <div>
     <b-button :to="{ name: 'StarShipDetailsPage', params: { id: name } }">
-      Ship Details</b-button
-    >
+      Ship Details
+    </b-button>
   </div>
 </template>
 
