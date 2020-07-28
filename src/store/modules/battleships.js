@@ -1,13 +1,22 @@
 import { mockedData } from '../../assets/mock-data.js'
+import { mockedData2 } from '../../assets/mock-data2.js'
 
 export const state = {
   starWarsBattleships: [],
-  BattleShipInfo: []
+  BattleShipInfo: ''
 }
 
 const mutations = {
   setBattleships: (state, payload) => {
     state.starWarsBattleships = payload.results
+    state.BattleShipInfo = payload.next
+  },
+  setNextPage: (state, payload) => {
+    state.starWarsBattleships = state.starWarsBattleships.concat(
+      payload.results
+    )
+    state.BattleShipInfo = payload.next
+    console.log('setNextPage', payload)
   }
 }
 const getters = {
@@ -33,18 +42,29 @@ const actions = {
     } catch (error) {
       console.log(error)
     }
+  },
+  async getNextPage ({ commit }) {
+    try {
+      await new Promise(resolve => {
+        setTimeout(() => {
+          commit('setNextPage', mockedData2)
+        }, 500)
+      })
+    } catch (error) {
+      console.log(error)
+    }
   }
-  // async fetchBattleShips ({ commit }) {
-  //   const corsAnywhere = 'https://cors-anywhere.herokuapp.com/'
-  //   const url = 'https://swapi.dev/api/starships/'
-  //   try {
-  //     const response = await fetch(`${corsAnywhere}${url}`)
-  //     const data = await response.json()
-  //     commit('setBattleships', data)
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
+    // async getNextPage ({ commit }) {
+    //   const corsAnywhere = 'https://cors-anywhere.herokuapp.com/'
+    //   const url = state.BattleShipInfo
+    //   try {
+    //     const response = await fetch(`${corsAnywhere}${url}`)
+    //     const data = await response.json()
+    //     commit('setNextPage', data)
+    //   } catch (error) {
+    //     console.log(error)
+    //   }
+    // }
 }
 
 export default { namespaced: true, state, getters, mutations, actions }

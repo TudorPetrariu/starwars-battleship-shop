@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" v-model="quantity" />
+    <input type="number" class="w-50" v-model="quantity" />
     <button
       :disabled="quantity <= 0"
       @click="addItemToCart"

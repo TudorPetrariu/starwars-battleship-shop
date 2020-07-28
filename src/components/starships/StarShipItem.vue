@@ -2,8 +2,8 @@
   <div>
     <div>
       <b-card
-        :title="ship.name"
-        :sub-title="`${ship.cost_in_credits}  Credits`"
+        :title="pages.name"
+        :sub-title="`${pages.cost_in_credits}  Credits`"
         img-src="https://picsum.photos/600/300/?image=25"
         img-alt="Image"
         style="max-width: 20rem;"
@@ -11,13 +11,15 @@
       >
         <b-card-text>
           <div class="d-flex flex-column">
-            <strong>Model: {{ ship.model }} </strong>
-            <span>Passenger capacity : {{ ship.passengers }}</span>
+            <strong>Model: {{ pages.model }} </strong>
+            <span>Passenger capacity : {{ pages.passengers }}</span>
           </div>
         </b-card-text>
+        <div class="d-flex flex-column ">
+          <add-to-cart :ship="pages"></add-to-cart>
+          <details-page-button :name="pages.name"></details-page-button>
+        </div>
       </b-card>
-      <add-to-cart :ship="ship"></add-to-cart>
-      <details-page-button :name="ship.name"></details-page-button>
     </div>
   </div>
 </template>
@@ -27,7 +29,7 @@ import AddToCart from '../common/AddToCart.vue'
 import DetailsPageButton from '../common/DetailsPageButton.vue'
 
 export default {
-  props: ['ship'],
+  props: ['pages'],
   components: {
     'add-to-cart': AddToCart,
     'details-page-button': DetailsPageButton
