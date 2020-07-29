@@ -1,9 +1,9 @@
 <template>
   <div>
     <h1>Starships getBattleShips</h1>
-    <starship-item v-for="pages in showNext10Items" :pages="pages" />
+    <starship-item v-for="pages in showNext10Items" :key="pages.name" :pages="pages" />
     <!-- Pagination -->
-    <div >
+    <div>
       <div class="my-4">
         <ul class="pagination pagination-md justify-content-center text-center">
           <li :class="currentPage === 1 ? 'disabled' : ''" class="page-item">
