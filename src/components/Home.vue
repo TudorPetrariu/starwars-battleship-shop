@@ -1,7 +1,9 @@
 <template>
   <div id="home">
+    <app-header/>
     <span>Home Page</span>
     <search-filters />
+    
     <b-card class="container" v-for="ship in showResults" :key="ship.model">
       <template v-slot:header>
         <h4 class="mb-0 text-center">{{ ship.name }}</h4>
@@ -40,14 +42,19 @@
 
 <script>
 import SearchFilter from './common/SearchFilter.vue'
+import Header from './TheHeader.vue'
+
 export default {
   components: {
-    'search-filters': SearchFilter
+    'search-filters': SearchFilter,
+    'app-header': Header,
+
   },
   computed: {
     showResults () {
       return this.$store.getters['battleships/getSearchedBattleShip']
     }
+   
   }
 }
 </script>

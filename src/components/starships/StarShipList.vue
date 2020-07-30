@@ -28,6 +28,8 @@
 <script>
 import AddToCart from '../common/AddToCart.vue'
 import StarShipItem from './StarShipItem.vue'
+import TheFooter from '../TheFooter'
+
 export default {
   data () {
     return {
@@ -39,7 +41,8 @@ export default {
   },
   components: {
     'add-to-cart': AddToCart,
-    'starship-item': StarShipItem
+    'starship-item': StarShipItem,
+    'app-footer': TheFooter
   },
   computed: {
     getBattleShip () {
