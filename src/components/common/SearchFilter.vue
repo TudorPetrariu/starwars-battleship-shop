@@ -1,6 +1,5 @@
 <template>
-
-  <div>
+  <div class="container mt-5">
     <b-input-group class="mb-5">
       <template v-slot:prepend>
         <b-input-group-text>StarShips</b-input-group-text>
@@ -13,7 +12,7 @@
       ></b-form-input>
 
       <template v-slot:append>
-        <b-dropdown text="Dropdown" variant="success">
+        <b-dropdown text="Categories" variant="success">
           <b-dropdown-item>Action A</b-dropdown-item>
           <b-dropdown-item>Action B</b-dropdown-item>
         </b-dropdown>

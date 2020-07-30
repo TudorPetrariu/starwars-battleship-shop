@@ -1,11 +1,7 @@
 <template>
-  <div class="container">
-    <app-header></app-header>
-    <div class="row">
-      <div class="col-12">
-        <router-view></router-view>
-      </div>
-    </div>
+  <div>
+    <app-header />
+    <router-view></router-view>
     <app-footer />
   </div>
 </template>
@@ -28,3 +24,5 @@ export default {
   }
 }
 </script>
+<style>
+</style>

@@ -1,12 +1,8 @@
 <template>
-  <div>
-    <div class="jumbotron text-center">
-      <span>Home Page</span>
-    </div>
-
+  <div id="home">
+    <span>Home Page</span>
     <search-filters />
-
-    <b-card v-for="ship in showResults" :key="ship.model">
+    <b-card class="container" v-for="ship in showResults" :key="ship.model">
       <template v-slot:header>
         <h4 class="mb-0 text-center">{{ ship.name }}</h4>
       </template>

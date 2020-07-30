@@ -1,6 +1,13 @@
 <template>
   <div>
     <h3>This is the cart page</h3>
+    <div v-if="!cartItems.length" class="mt-5">
+      <img
+        src="../../assets/images/empty-cart.png"
+        alt=""
+        class="rounded-circle"
+      />
+    </div>
     <div v-for="item in cartItems">
       <span> Item: {{ item.name }}</span>
       <span> Price: {{ item.price }}</span>
@@ -28,4 +35,6 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+
+</style>
