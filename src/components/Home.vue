@@ -1,9 +1,13 @@
 <template>
   <div id="home">
-    <app-header/>
-    <span>Home Page</span>
+    <app-header />
     <search-filters />
-    
+   <div class="text-white" v-for="item in sortedCategory">
+      <span>{{ item.name }}</span>
+      <span>{{ item.model }}</span>
+      <span>{{item.cargo_capacity}}</span>
+      <span></span>
+    </div>
     <b-card class="container" v-for="ship in showResults" :key="ship.model">
       <template v-slot:header>
         <h4 class="mb-0 text-center">{{ ship.name }}</h4>
@@ -41,22 +45,32 @@
 </template>
 
 <script>
+import bus from '../main'
+
 import SearchFilter from './common/SearchFilter.vue'
 import Header from './TheHeader.vue'
 
 export default {
+  data () {
+    return {
+      sortedCategory: []
+    }
+  },
   components: {
     'search-filters': SearchFilter,
-    'app-header': Header,
-
+    'app-header': Header
   },
   computed: {
     showResults () {
       return this.$store.getters['battleships/getSearchedBattleShip']
     }
-   
+  },
+  mounted () {
+    this.$eventBus.$on('sortedItems', payload => {
+      this.sortedCategory = payload
+      console.log(payload)
+      console.log(this.sortedCategory)
+    })
   }
 }
 </script>
-
-<style lang="scss"></style>

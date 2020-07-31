@@ -12,14 +12,12 @@
       >
       </b-form-input>
 
+
       <select v-model="selectedCategory">
         <option value="All" disabled selected>Filter by:</option>
-        <option
-          v-for="(category, index) in categories"
-          :key="index"
-          @change="filterCategories()"
-          >{{ category }}</option
-        >
+        <option v-for="(category, index,) in categories" :key="index">{{
+          category
+        }}</option>
       </select>
       <!-- <template v-slot:append>
         <b-dropdown
@@ -35,10 +33,7 @@
         </b-dropdown>
       </template> -->
     </b-input-group>
-    <div v-if="" v-for="items in filterCategories" class="text-white ">
-      <span class="text-white">{{ items.name }}</span>
-      <span class="text-white">{{ items.hyperdrive_rating }}</span>
-    </div>
+    <div v-for="items in filterCategories" class="text-white "></div>
   </div>
 </template>
 
@@ -46,6 +41,7 @@
 export default {
   data () {
     return {
+      cat: [],
       searchTerm: '',
       selectedCategory: 'All',
       categories: [
@@ -63,6 +59,9 @@ export default {
         'battleships/fetchSearchedBattleship',
         this.searchTerm
       )
+    },
+    emitSearch () {
+      console.log(this.selectedCategory)
     }
   },
   computed: {
@@ -75,12 +74,24 @@ export default {
           const rateHyperDrive = this.getAllBattleShips.filter(
             value => value.hyperdrive_rating
           )
-          return rateHyperDrive.sort(
+          const ratedDrive = rateHyperDrive.sort(
             (a, b) => b.hyperdrive_rating - a.hyperdrive_rating
           )
+
+          this.$eventBus.$emit('sortedItems', ratedDrive)
+
           break
 
         case 'Cargo Capacity':
+          const ratedCargo = this.getAllBattleShips.filter(
+            value => value.cargo_capacity
+          )
+          const rateCargo = ratedCargo.sort(
+            (a, b) => b.cargo_capacity - a.cargo_capacity
+          )
+          this.cat = rateCargo
+          this.$eventBus.$emit('sortedItems', rateCargo)
+
           console.log('Cargo Capacity category selected')
           break
 
@@ -95,6 +106,7 @@ export default {
         case 'Length':
           console.log('Length category selected')
           break
+          filterCategories()
       }
     }
   }
