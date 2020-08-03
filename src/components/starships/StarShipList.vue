@@ -1,5 +1,6 @@
 <template>
   <div>
+    <app-header/>
     <h1>Starships getBattleShips</h1>
     <starship-item v-for="pages in showNext10Items" :key="pages.name" :pages="pages" />
     <!-- Pagination -->
@@ -29,6 +30,7 @@
 import AddToCart from '../common/AddToCart.vue'
 import StarShipItem from './StarShipItem.vue'
 import TheFooter from '../TheFooter'
+import TheHeader from '../TheHeader'
 
 export default {
   data () {
@@ -42,7 +44,8 @@ export default {
   components: {
     'add-to-cart': AddToCart,
     'starship-item': StarShipItem,
-    'app-footer': TheFooter
+    'app-footer': TheFooter,
+    'app-header': TheHeader
   },
   computed: {
     getBattleShip () {

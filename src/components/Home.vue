@@ -2,11 +2,11 @@
   <div id="home">
     <app-header />
     <search-filters />
-   <div class="text-white" v-for="item in sortedCategory">
+    <div class="text-white" v-for="item in sortedCategory">
       <span>{{ item.name }}</span>
       <span>{{ item.model }}</span>
-      <span>{{item.cargo_capacity}}</span>
-      <span></span>
+      <span>{{ item.cargo_capacity }}</span>
+      <span>{{ item.hyperdrive_rating }}</span>
     </div>
     <b-card class="container" v-for="ship in showResults" :key="ship.model">
       <template v-slot:header>
@@ -66,10 +66,9 @@ export default {
     }
   },
   mounted () {
-    this.$eventBus.$on('sortedItems', payload => {
+    this.$eventBus.$on('sortedCategories', payload => {
       this.sortedCategory = payload
       console.log(payload)
-      console.log(this.sortedCategory)
     })
   }
 }

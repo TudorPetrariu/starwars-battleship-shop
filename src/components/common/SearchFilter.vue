@@ -5,35 +5,20 @@
         <b-input-group-text>StarShips</b-input-group-text>
       </template>
       <b-form-input
-        @change="searchStarShip"
+        @change="fetchStarShip"
         type="text"
         v-model="searchTerm"
         placeholder="Search your favorite battleships ..."
       >
       </b-form-input>
 
-
       <select v-model="selectedCategory">
         <option value="All" disabled selected>Filter by:</option>
-        <option v-for="(category, index,) in categories" :key="index">{{
+        <option v-for="(category, index) in categories" :key="index">{{
           category
         }}</option>
       </select>
-      <!-- <template v-slot:append>
-        <b-dropdown
-          v-for="(element, index) in getAllBattleShips"
-          v-model="selectedCategory"
-          text="Categories"
-          variant="success"
-        >
-          <b-dropdown-item value="all" selected> All</b-dropdown-item>
-          <b-dropdown-item :value="element.model">Cargo</b-dropdown-item>
-          <b-dropdown-item :value="element.name">Passengers</b-dropdown-item>
-          <b-dropdown-item>HyperdriveRating</b-dropdown-item>
-        </b-dropdown>
-      </template> -->
     </b-input-group>
-    <div v-for="items in filterCategories" class="text-white "></div>
   </div>
 </template>
 
@@ -41,7 +26,6 @@
 export default {
   data () {
     return {
-      cat: [],
       searchTerm: '',
       selectedCategory: 'All',
       categories: [
@@ -54,14 +38,11 @@ export default {
     }
   },
   methods: {
-    searchStarShip () {
+    fetchStarShip () {
       this.$store.dispatch(
         'battleships/fetchSearchedBattleship',
         this.searchTerm
       )
-    },
-    emitSearch () {
-      console.log(this.selectedCategory)
     }
   },
   computed: {
@@ -71,27 +52,16 @@ export default {
     filterCategories () {
       switch (this.selectedCategory) {
         case 'HyperDrive':
-          const rateHyperDrive = this.getAllBattleShips.filter(
-            value => value.hyperdrive_rating
-          )
-          const ratedDrive = rateHyperDrive.sort(
+          return this.getAllBattleShips.sort(
             (a, b) => b.hyperdrive_rating - a.hyperdrive_rating
           )
-
-          this.$eventBus.$emit('sortedItems', ratedDrive)
-
+          console.log('HyperDrive category selected')
           break
 
         case 'Cargo Capacity':
-          const ratedCargo = this.getAllBattleShips.filter(
-            value => value.cargo_capacity
-          )
-          const rateCargo = ratedCargo.sort(
+          return this.getAllBattleShips.sort(
             (a, b) => b.cargo_capacity - a.cargo_capacity
           )
-          this.cat = rateCargo
-          this.$eventBus.$emit('sortedItems', rateCargo)
-
           console.log('Cargo Capacity category selected')
           break
 
@@ -106,8 +76,15 @@ export default {
         case 'Length':
           console.log('Length category selected')
           break
-          filterCategories()
       }
+    }
+  },
+  watch: {
+    filterCategories: {
+      handler (value) {
+        this.$eventBus.$emit('sortedCategories', value)
+      },
+      immediate: true
     }
   }
 }
