@@ -10,16 +10,14 @@
         <div class="d-flex justify-content-between">
           <b-dropdown-item> Title </b-dropdown-item>
           <b-dropdown-item> 1 x 23$ </b-dropdown-item>
-          <b-button  size="sm" variant="danger" @click="removeItem">
+          <b-button size="sm" variant="danger" @click="removeItem">
             <b-icon icon="trash" aria-hidden="true"></b-icon>
             Remove
           </b-button>
         </div>
         <b-dropdown-divider></b-dropdown-divider>
 
-        <div
-          class="bg--danger d-flex justify-content-between"
-        >
+        <div class="bg--danger d-flex justify-content-between">
           <b-dropdown-item>Total </b-dropdown-item>
           <b-dropdown-item> $30</b-dropdown-item>
           <b-button size="sm" variant="outline-dark" @click="removeItem">
@@ -27,6 +25,9 @@
             Clear Cart
           </b-button>
         </div>
+      </div>
+      <div class="px-3">
+        <b-button class="mt-2 d-flex justify-content-center align-items-center" :to="{ name: 'Cart' }">Go to Cart</b-button>
       </div>
     </b-dropdown>
   </div>
@@ -42,7 +43,7 @@ export default {
       console.log(this.$route.name)
     }
   },
-   computed: {
+  computed: {
     cartItems () {
       return this.$store.getters['cart/getCart']
     }

@@ -12,9 +12,9 @@
       <b-nav-item active-class="active" :to="{ name: 'StarShipList' }">
         StarShips
       </b-nav-item>
-  
+        <mini-cart />
     </div>
-      <mini-cart />
+
   </b-nav>
 </template>
 
