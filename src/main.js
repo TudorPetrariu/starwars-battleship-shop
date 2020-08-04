@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import main from './assets/styles/main.scss'
 
+
 require('regenerator-runtime/runtime')
 Vue.prototype.$eventBus = new Vue()
 Vue.use(VueRouter)

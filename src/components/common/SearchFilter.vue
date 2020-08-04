@@ -12,7 +12,7 @@
       >
       </b-form-input>
 
-      <select v-model="selectedCategory">
+      <select v-if="$route.name !== 'Home'" v-model="selectedCategory">
         <option value="All" disabled selected>Filter by:</option>
         <option v-for="(category, index) in categories" :key="index">{{
           category
@@ -66,14 +66,21 @@ export default {
           break
 
         case 'Passengers':
+          return this.getAllBattleShips.sort(
+            (a, b) => b.passengers - a.passengers
+          )
           console.log('Passengers category selected')
           break
 
         case 'Costs':
+          return this.getAllBattleShips.sort(
+            (a, b) => parseInt(b.cost_in_credits) - parseInt(a.cost_in_credits)
+          )
           console.log('Costs category selected')
           break
 
         case 'Length':
+          return this.getAllBattleShips.sort((a, b) => parseInt(b.length) - parseInt(a.length))
           console.log('Length category selected')
           break
       }
@@ -83,8 +90,8 @@ export default {
     filterCategories: {
       handler (value) {
         this.$eventBus.$emit('sortedCategories', value)
-      },
-      immediate: true
+        console.log(value)
+      }
     }
   }
 }

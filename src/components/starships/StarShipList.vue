@@ -2,7 +2,8 @@
   <div>
     <app-header/>
     <h1>Starships getBattleShips</h1>
-    <starship-item v-for="pages in showNext10Items" :key="pages.name" :pages="pages" />
+    <search-filter/>
+    <starship-item v-for="pages in showNext10Items" :key="pages.model" :pages="pages" />
     <!-- Pagination -->
     <div>
       <div class="my-4">
@@ -31,6 +32,7 @@ import AddToCart from '../common/AddToCart.vue'
 import StarShipItem from './StarShipItem.vue'
 import TheFooter from '../TheFooter'
 import TheHeader from '../TheHeader'
+import SearchFilter from '../common/SearchFilter'
 
 export default {
   data () {
@@ -45,7 +47,8 @@ export default {
     'add-to-cart': AddToCart,
     'starship-item': StarShipItem,
     'app-footer': TheFooter,
-    'app-header': TheHeader
+    'app-header': TheHeader,
+    'search-filter' :SearchFilter
   },
   computed: {
     getBattleShip () {

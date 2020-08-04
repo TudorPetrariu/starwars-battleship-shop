@@ -2,12 +2,6 @@
   <div id="home">
     <app-header />
     <search-filters />
-    <div class="text-white" v-for="item in sortedCategory">
-      <span>{{ item.name }}</span>
-      <span>{{ item.model }}</span>
-      <span>{{ item.cargo_capacity }}</span>
-      <span>{{ item.hyperdrive_rating }}</span>
-    </div>
     <b-card class="container" v-for="ship in showResults" :key="ship.model">
       <template v-slot:header>
         <h4 class="mb-0 text-center">{{ ship.name }}</h4>
@@ -51,11 +45,6 @@ import SearchFilter from './common/SearchFilter.vue'
 import Header from './TheHeader.vue'
 
 export default {
-  data () {
-    return {
-      sortedCategory: []
-    }
-  },
   components: {
     'search-filters': SearchFilter,
     'app-header': Header
@@ -64,12 +53,6 @@ export default {
     showResults () {
       return this.$store.getters['battleships/getSearchedBattleShip']
     }
-  },
-  mounted () {
-    this.$eventBus.$on('sortedCategories', payload => {
-      this.sortedCategory = payload
-      console.log(payload)
-    })
   }
 }
 </script>

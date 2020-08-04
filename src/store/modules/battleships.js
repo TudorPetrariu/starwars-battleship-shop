@@ -44,7 +44,7 @@ const actions = {
       const response = await fetch(`${url} ${payload}`)
       const data = await response.json()
       commit('setSearchedBattleship', data.results)
-      console.log(data)
+      // console.log(data)
     } catch (error) {
       console.log(error)
     }

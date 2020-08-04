@@ -1,5 +1,6 @@
 <template>
   <div>
+    <app-header/>
     <h3>This is the cart page</h3>
     <div v-if="!cartItems.length" class="mt-5">
       <img
@@ -21,11 +22,12 @@
 <script>
 import DetailsPageButton from '../common/DetailsPageButton.vue'
 import RemoveItemFromCart from '../common/RemoveItemFromCart.vue'
-
+import  TheHeader from '../TheHeader.vue'
 export default {
   components: {
     'details-page-button': DetailsPageButton,
-    'remove-item-button': RemoveItemFromCart
+    'remove-item-button': RemoveItemFromCart,
+    'app-header': TheHeader
   },
   computed: {
     cartItems () {
