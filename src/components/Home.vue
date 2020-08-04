@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <app-header />
+    <TheHeader />
     <search-filters />
     <b-card class="container" v-for="ship in showResults" :key="ship.model">
       <template v-slot:header>
@@ -42,12 +42,12 @@
 import bus from '../main'
 
 import SearchFilter from './common/SearchFilter.vue'
-import Header from './TheHeader.vue'
+import TheHeader from './TheHeader.vue'
 
 export default {
   components: {
     'search-filters': SearchFilter,
-    'app-header': Header
+    'TheHeader': TheHeader
   },
   computed: {
     showResults () {

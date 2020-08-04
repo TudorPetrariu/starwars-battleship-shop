@@ -6,6 +6,11 @@ import { routes } from './routes.js'
 import { BootstrapVue, BIconCart } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+import { BootstrapVueIcons } from 'bootstrap-vue'
+
+Vue.use(BootstrapVueIcons)
+
 import main from './assets/styles/main.scss'
 
 
