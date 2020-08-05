@@ -6,25 +6,31 @@
         <b-badge variant="light">4</b-badge>
       </template>
 
-      <div class="mt-1 px-2">
+      <div v-for="cartItem in cartItems" :key="cartItem.name" class="mt-1 px-2">
         <div class="d-flex justify-content-between">
-          <b-dropdown-item> Title </b-dropdown-item>
-          <b-dropdown-item> 1 x 23$ </b-dropdown-item>
-          <b-button size="sm" variant="danger" @click="removeItem">
-            <b-icon icon="trash" aria-hidden="true"></b-icon>
+          <b-dropdown-item> {{ cartItem.name }} </b-dropdown-item>
+          <b-dropdown-item>
+            {{ cartItem.quantity }} x {{ cartItem.price }}
+          </b-dropdown-item>
+          <remove-item-from-cart :ship="cartItem" />
+          <!-- <b-button size="sm" variant="danger" @click="removeItem">
             Remove
-          </b-button>
+          </b-button> -->
         </div>
-        <b-dropdown-divider></b-dropdown-divider>
+      </div>
 
-        <div class="bg--danger d-flex justify-content-between">
-          <b-dropdown-item>Total </b-dropdown-item>
-          <b-dropdown-item> $30</b-dropdown-item>
-          <b-button size="sm" variant="outline-dark" @click="removeItem">
-            <b-icon icon="trash-fill" aria-hidden="true"></b-icon>
-            Clear Cart
-          </b-button>
-        </div>
+      <b-dropdown-divider></b-dropdown-divider>
+
+      <div
+        v-if="cartItems.length"
+        class="bg--danger d-flex justify-content-between"
+      >
+        <b-dropdown-item>Total </b-dropdown-item>
+        <b-dropdown-item> {{ getTotalCartPrice }}</b-dropdown-item>
+        <b-button size="sm" variant="outline-dark">
+          <b-icon icon="trash-fill" aria-hidden="true"></b-icon>
+          Clear Cart
+        </b-button>
       </div>
       <div class="px-3">
         <b-button
@@ -38,16 +44,20 @@
 </template>
 
 <script>
+import removeItemFromCart from '../common/RemoveItemFromCart.vue';
 export default {
+  components: {
+    'remove-item-from-cart': removeItemFromCart
+  },
   computed: {
     cartItems() {
       return this.$store.getters['cart/getCart'];
+    },
+    getTotalCartPrice() {
+      return this.$store.getters['cart/getTotalCartPrice'];
     }
   },
   methods: {
-    removeItem() {
-      console.log(this.$route.name);
-    },
     clearCart() {
       console.log(this.$route.name);
     }
