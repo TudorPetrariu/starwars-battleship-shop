@@ -1,75 +1,75 @@
-import { mockedData } from '../../assets/mock-data.js'
-import { mockedData2 } from '../../assets/mock-data2.js'
+import { mockedData } from '../../assets/mock-data.js';
+import { mockedData2 } from '../../assets/mock-data2.js';
 
 export const state = {
   starWarsBattleships: [],
   battleShipsNextPage: '',
   searchedBattleship: {}
-}
+};
 
 const mutations = {
   setBattleships: (state, payload) => {
-    state.starWarsBattleships = payload.results
-    state.battleShipsNextPage = payload.next
+    state.starWarsBattleships = payload.results;
+    state.battleShipsNextPage = payload.next;
   },
   setNextPage: (state, payload) => {
     state.starWarsBattleships = state.starWarsBattleships.concat(
       payload.results
-    )
-    state.battleShipsNextPage = payload.next
+    );
+    state.battleShipsNextPage = payload.next;
   },
   setSearchedBattleship: (state, payload) => {
-    state.searchedBattleship = payload
+    state.searchedBattleship = payload;
   }
-}
+};
 const getters = {
-  getSearchedBattleShip: state => {
-    return state.searchedBattleship
+  getSearchedBattleShip: (state) => {
+    return state.searchedBattleship;
   },
-  getBattleShips: state => {
-    return state.starWarsBattleships
+  getBattleShips: (state) => {
+    return state.starWarsBattleships;
   },
-  getBattleShipDetails: state => name => {
+  getBattleShipDetails: (state) => (name) => {
     const findShipDetails = state.starWarsBattleships.find(
-      ship => ship.name === name
-    )
-    return findShipDetails
+      (ship) => ship.name === name
+    );
+    return findShipDetails;
   }
-}
+};
 
 const actions = {
-  async fetchSearchedBattleship ({ commit }, payload) {
-    const url = 'https://swapi.dev/api/starships/?search='
+  async fetchSearchedBattleship({ commit }, payload) {
+    const url = 'https://swapi.dev/api/starships/?search=';
     try {
-      const response = await fetch(`${url} ${payload}`)
-      const data = await response.json()
-      commit('setSearchedBattleship', data.results)
+      const response = await fetch(`${url} ${payload}`);
+      const data = await response.json();
+      commit('setSearchedBattleship', data.results);
       // console.log(data)
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
 
-  async fetchBattleShips ({ commit }) {
+  async fetchBattleShips({ commit }) {
     try {
-      await new Promise(resolve => {
+      await new Promise(() => {
         setTimeout(() => {
-          commit('setBattleships', mockedData)
-        }, 500)
-      })
+          commit('setBattleships', mockedData);
+        }, 500);
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   },
-  async getNextPage ({ commit }) {
+  async getNextPage({ commit }) {
     try {
-      await new Promise(resolve => {
+      await new Promise(() => {
         setTimeout(() => {
-          commit('setNextPage', mockedData2)
-        }, 500)
-      })
+          commit('setNextPage', mockedData2);
+        }, 500);
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
   // async getNextPage ({ commit }) {
@@ -83,6 +83,6 @@ const actions = {
   //     console.log(error)
   //   }
   // }
-}
+};
 
-export default { namespaced: true, state, getters, mutations, actions }
+export default { namespaced: true, state, getters, mutations, actions };

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-header/>
+    <app-header />
     <h3>This is the cart page</h3>
     <div v-if="!cartItems.length" class="mt-5">
       <img
@@ -9,7 +9,7 @@
         class="rounded-circle"
       />
     </div>
-    <div v-for="item in cartItems">
+    <div v-for="item in cartItems" :key="item.name">
       <span> Item: {{ item.name }}</span>
       <span> Price: {{ item.price }}</span>
       <span>Quantity: {{ item.quantity }}</span>
@@ -20,9 +20,9 @@
 </template>
 
 <script>
-import DetailsPageButton from '../common/DetailsPageButton.vue'
-import RemoveItemFromCart from '../common/RemoveItemFromCart.vue'
-import  TheHeader from '../TheHeader.vue'
+import DetailsPageButton from '../common/DetailsPageButton.vue';
+import RemoveItemFromCart from '../common/RemoveItemFromCart.vue';
+import TheHeader from '../TheHeader.vue';
 export default {
   components: {
     'details-page-button': DetailsPageButton,
@@ -30,13 +30,11 @@ export default {
     'app-header': TheHeader
   },
   computed: {
-    cartItems () {
-      return this.$store.getters['cart/getCart']
+    cartItems() {
+      return this.$store.getters['cart/getCart'];
     }
   }
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

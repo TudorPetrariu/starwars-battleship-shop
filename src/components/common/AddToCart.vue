@@ -1,11 +1,7 @@
 <template>
   <div>
-    <input type="number" class="w-50" v-model="quantity" />
-    <button
-      :disabled="quantity <= 0"
-      @click="addItemToCart"
-      class="btn-succes"
-    >
+    <input v-model="quantity" type="number" class="w-50" />
+    <button :disabled="quantity <= 0" class="btn-succes" @click="addItemToCart">
       Add to Cart
     </button>
   </div>
@@ -14,23 +10,23 @@
 <script>
 export default {
   props: ['ship'],
-  data () {
+  data() {
     return {
       quantity: 0
-    }
+    };
   },
   methods: {
-    addItemToCart () {
+    addItemToCart() {
       const order = {
         name: this.ship.name,
         price: this.ship.cost_in_credits,
         quantity: this.quantity
-      }
-      this.$store.commit('cart/setItemToCart', order)
-      this.quantity = 0
+      };
+      this.$store.commit('cart/setItemToCart', order);
+      this.quantity = 0;
     }
   }
-}
+};
 </script>
 
 <style></style>

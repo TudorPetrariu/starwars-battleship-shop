@@ -7,18 +7,18 @@
 <script>
 export default {
   props: ['ship'],
-  data () {
-    return {}
+  data() {
+    return {};
   },
   methods: {
-    removeItem () {
+    removeItem() {
       const order = {
         name: this.ship.name
-      }
-      this.$store.dispatch('cart/deleteItemFromCart', order)
+      };
+      this.$store.dispatch('cart/deleteItemFromCart', order);
     }
   }
-}
+};
 </script>
 
 <style></style>

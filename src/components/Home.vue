@@ -1,8 +1,8 @@
 <template>
   <div id="home">
-    <TheHeader />
+    <app-header />
     <search-filters />
-    <b-card class="container" v-for="ship in showResults" :key="ship.model">
+    <b-card v-for="ship in showResults" :key="ship.model" class="container">
       <template v-slot:header>
         <h4 class="mb-0 text-center">{{ ship.name }}</h4>
       </template>
@@ -39,20 +39,18 @@
 </template>
 
 <script>
-import bus from '../main'
-
-import SearchFilter from './common/SearchFilter.vue'
-import TheHeader from './TheHeader.vue'
+import SearchFilter from './common/SearchFilter.vue';
+import TheHeader from './TheHeader.vue';
 
 export default {
   components: {
     'search-filters': SearchFilter,
-    'TheHeader': TheHeader
+    'app-header': TheHeader
   },
   computed: {
-    showResults () {
-      return this.$store.getters['battleships/getSearchedBattleShip']
+    showResults() {
+      return this.$store.getters['battleships/getSearchedBattleShip'];
     }
   }
-}
+};
 </script>

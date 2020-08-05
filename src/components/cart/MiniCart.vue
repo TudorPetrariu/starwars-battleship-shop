@@ -27,7 +27,11 @@
         </div>
       </div>
       <div class="px-3">
-        <b-button class="mt-2 d-flex justify-content-center align-items-center" :to="{ name: 'Cart' }">Go to Cart</b-button>
+        <b-button
+          class="mt-2 d-flex justify-content-center align-items-center"
+          :to="{ name: 'Cart' }"
+          >Go to Cart</b-button
+        >
       </div>
     </b-dropdown>
   </div>
@@ -35,20 +39,20 @@
 
 <script>
 export default {
-  methods: {
-    removeItem () {
-      console.log(this.$route.name)
-    },
-    clearCart () {
-      console.log(this.$route.name)
+  computed: {
+    cartItems() {
+      return this.$store.getters['cart/getCart'];
     }
   },
-  computed: {
-    cartItems () {
-      return this.$store.getters['cart/getCart']
+  methods: {
+    removeItem() {
+      console.log(this.$route.name);
+    },
+    clearCart() {
+      console.log(this.$route.name);
     }
   }
-}
+};
 </script>
 
 <style></style>

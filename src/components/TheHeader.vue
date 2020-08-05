@@ -12,19 +12,18 @@
       <b-nav-item active-class="active" :to="{ name: 'StarShipList' }">
         StarShips
       </b-nav-item>
-        <mini-cart />
+      <mini-cart />
     </div>
-
   </b-nav>
 </template>
 
 <script>
-import MiniCart from '../components/cart/MiniCart.vue'
+import MiniCart from '../components/cart/MiniCart.vue';
 export default {
   components: {
     'mini-cart': MiniCart
   }
-}
+};
 </script>
 
 <style></style>

@@ -19,7 +19,7 @@
             <span>Ship Price: {{ pages.cost_in_credits }}</span>
           </div>
         </b-card-text>
-        <div class="d-flex flex-column ">
+        <div class="d-flex flex-column">
           <add-to-cart :ship="pages"></add-to-cart>
           <details-page-button :name="pages.name"></details-page-button>
         </div>
@@ -29,16 +29,16 @@
 </template>
 
 <script>
-import AddToCart from '../common/AddToCart.vue'
-import DetailsPageButton from '../common/DetailsPageButton.vue'
+import AddToCart from '../common/AddToCart.vue';
+import DetailsPageButton from '../common/DetailsPageButton.vue';
 
 export default {
-  props: ['pages'],
   components: {
     'add-to-cart': AddToCart,
     'details-page-button': DetailsPageButton
-  }
-}
+  },
+  props: ['pages']
+};
 </script>
 
 <style></style>

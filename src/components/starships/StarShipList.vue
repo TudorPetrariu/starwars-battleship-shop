@@ -1,9 +1,13 @@
 <template>
   <div>
-    <app-header/>
+    <app-header />
     <h1>Starships getBattleShips</h1>
-    <search-filter/>
-    <starship-item v-for="pages in showNext10Items" :key="pages.model" :pages="pages" />
+    <search-filter />
+    <starship-item
+      v-for="pages in showNext10Items"
+      :key="pages.model"
+      :pages="pages"
+    />
     <!-- Pagination -->
     <div>
       <div class="my-4">
@@ -11,7 +15,7 @@
           <li :class="currentPage === 1 ? 'disabled' : ''" class="page-item">
             <a class="page-link" @click="prevPage">Previous</a>
           </li>
-          <li class="page-link" style="background-color: inherit">
+          <li class="page-link" style="background-color: inherit;">
             {{ currentPage }} of 4
           </li>
           <li
@@ -28,51 +32,47 @@
 </template>
 
 <script>
-import AddToCart from '../common/AddToCart.vue'
-import StarShipItem from './StarShipItem.vue'
-import TheFooter from '../TheFooter'
-import TheHeader from '../TheHeader'
-import SearchFilter from '../common/SearchFilter'
+import StarShipItem from './StarShipItem.vue';
+import TheHeader from '../TheHeader';
+import SearchFilter from '../common/SearchFilter';
 
 export default {
-  data () {
+  components: {
+    'starship-item': StarShipItem,
+    'app-header': TheHeader,
+    'search-filter': SearchFilter
+  },
+  data() {
     return {
       perPage: 10,
       currentPage: 1,
       loading: false,
       lastPage: 4
-    }
-  },
-  components: {
-    'add-to-cart': AddToCart,
-    'starship-item': StarShipItem,
-    'app-footer': TheFooter,
-    'app-header': TheHeader,
-    'search-filter' :SearchFilter
+    };
   },
   computed: {
-    getBattleShip () {
-      return this.$store.getters['battleships/getBattleShips']
+    getBattleShip() {
+      return this.$store.getters['battleships/getBattleShips'];
     },
-    showNext10Items () {
-      let start = (this.currentPage - 1) * this.perPage
-      let end = start + this.perPage
-      this.loading = false
-      return this.getBattleShip.slice(start, end)
+    showNext10Items() {
+      let start = (this.currentPage - 1) * this.perPage;
+      let end = start + this.perPage;
+      this.loading = false;
+      return this.getBattleShip.slice(start, end);
     }
   },
   methods: {
-    prevPage () {
-      this.loading = true
-      this.currentPage--
+    prevPage() {
+      this.loading = true;
+      this.currentPage--;
     },
-    nextPage () {
-      this.$store.dispatch('battleships/getNextPage')
-      this.loading = true
-      this.currentPage++
+    nextPage() {
+      this.$store.dispatch('battleships/getNextPage');
+      this.loading = true;
+      this.currentPage++;
     }
   }
-}
+};
 </script>
 
 <style></style>

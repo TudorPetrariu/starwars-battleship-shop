@@ -5,10 +5,10 @@
         <b-input-group-text>StarShips</b-input-group-text>
       </template>
       <b-form-input
-        @change="fetchStarShip"
-        type="text"
         v-model="searchTerm"
+        type="text"
         placeholder="Search your favorite battleships ..."
+        @change="fetchStarShip"
       >
       </b-form-input>
 
@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       searchTerm: '',
       selectedCategory: 'All',
@@ -35,66 +35,68 @@ export default {
         'Length',
         'Costs'
       ]
-    }
-  },
-  methods: {
-    fetchStarShip () {
-      this.$store.dispatch(
-        'battleships/fetchSearchedBattleship',
-        this.searchTerm
-      )
-    }
+    };
   },
   computed: {
-    getAllBattleShips () {
-      return this.$store.getters['battleships/getBattleShips']
+    getAllBattleShips() {
+      return this.$store.getters['battleships/getBattleShips'];
     },
-    filterCategories () {
+    filterCategories() {
       switch (this.selectedCategory) {
         case 'HyperDrive':
-          return this.getAllBattleShips.sort(
+          this.getAllBattleShips.sort(
             (a, b) => b.hyperdrive_rating - a.hyperdrive_rating
-          )
-          console.log('HyperDrive category selected')
-          break
+          );
+
+          console.log('HyperDrive category selected');
+          break;
 
         case 'Cargo Capacity':
           return this.getAllBattleShips.sort(
             (a, b) => b.cargo_capacity - a.cargo_capacity
-          )
-          console.log('Cargo Capacity category selected')
-          break
+          );
+          break;
 
         case 'Passengers':
           return this.getAllBattleShips.sort(
             (a, b) => b.passengers - a.passengers
-          )
-          console.log('Passengers category selected')
-          break
+          );
+          console.log('Passengers category selected');
+          break;
 
         case 'Costs':
           return this.getAllBattleShips.sort(
             (a, b) => parseInt(b.cost_in_credits) - parseInt(a.cost_in_credits)
-          )
-          console.log('Costs category selected')
-          break
+          );
+          console.log('Costs category selected');
+          break;
 
         case 'Length':
-          return this.getAllBattleShips.sort((a, b) => parseInt(b.length) - parseInt(a.length))
-          console.log('Length category selected')
-          break
+          return this.getAllBattleShips.sort(
+            (a, b) => parseInt(b.length) - parseInt(a.length)
+          );
+          console.log('Length category selected');
+          break;
       }
     }
   },
   watch: {
     filterCategories: {
-      handler (value) {
-        this.$eventBus.$emit('sortedCategories', value)
-        console.log(value)
+      handler(value) {
+        this.$eventBus.$emit('sortedCategories', value);
+        console.log(value);
       }
     }
+  },
+  methods: {
+    fetchStarShip() {
+      this.$store.dispatch(
+        'battleships/fetchSearchedBattleship',
+        this.searchTerm
+      );
+    }
   }
-}
+};
 </script>
 
 <style></style>
