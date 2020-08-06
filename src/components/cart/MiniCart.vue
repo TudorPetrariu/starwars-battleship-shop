@@ -1,40 +1,34 @@
 <template>
-  <div class="row">
+  <div>
     <b-dropdown right variant="primary" no-caret>
       <template v-slot:button-content>
-        <b-icon icon="cart" aria-hidden="true"></b-icon>
+        <b-icon icon="cart"></b-icon>
         <b-badge variant="light">4</b-badge>
       </template>
 
-      <div v-for="cartItem in cartItems" :key="cartItem.name" class="mt-1 px-2">
+      <div v-for="cartItem in cartItems" :key="cartItem.name">
         <div class="d-flex justify-content-between">
-          <b-dropdown-item> {{ cartItem.name }} </b-dropdown-item>
           <b-dropdown-item>
+            {{ cartItem.name }} <br />
             {{ cartItem.quantity }} x {{ cartItem.price }}
           </b-dropdown-item>
           <remove-item-from-cart :ship="cartItem" />
-          <!-- <b-button size="sm" variant="danger" @click="removeItem">
-            Remove
-          </b-button> -->
         </div>
       </div>
 
-      <b-dropdown-divider></b-dropdown-divider>
+      <div class="bg--danger d-flex justify-content-between">
+        <div>
+          <b-dropdown-item>Total {{ getTotalCartPrice }} </b-dropdown-item>
+        </div>
 
-      <div
-        v-if="cartItems.length"
-        class="bg--danger d-flex justify-content-between"
-      >
-        <b-dropdown-item>Total </b-dropdown-item>
-        <b-dropdown-item> {{ getTotalCartPrice }}</b-dropdown-item>
-        <b-button size="sm" variant="outline-dark">
+        <b-button size="sm" variant="outline-dark" @click="clearCartItems">
           <b-icon icon="trash-fill" aria-hidden="true"></b-icon>
           Clear Cart
         </b-button>
       </div>
-      <div class="px-3">
+      <div>
         <b-button
-          class="mt-2 d-flex justify-content-center align-items-center"
+          class="d-flex justify-content-center align-items-center"
           :to="{ name: 'Cart' }"
           >Go to Cart</b-button
         >
@@ -58,8 +52,16 @@ export default {
     }
   },
   methods: {
-    clearCart() {
-      console.log(this.$route.name);
+    clearCartItems() {
+      this.$store.dispatch('cart/clearCart');
+      console.log('cart cleared');
+      this.$bvToast.toast('Cart has been cleared', {
+        title: 'All set !',
+        variant: 'danger',
+        toaster: 'b-toaster-bottom-right',
+        appendToast: true,
+        autoHideDelay: 500
+      });
     }
   }
 };

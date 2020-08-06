@@ -24,6 +24,12 @@ export default {
       };
       this.$store.commit('cart/setItemToCart', order);
       this.quantity = 0;
+      this.$bvToast.toast(`You have added ${this.ship.name} to cart`, {
+        title: 'Congrats !!',
+        variant: 'success',
+        toaster: 'b-toaster-bottom-right',
+        autoHideDelay: 700
+      });
     }
   }
 };

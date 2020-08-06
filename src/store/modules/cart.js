@@ -20,12 +20,18 @@ const mutations = {
     state.cart.splice(state.cart.indexOf(record), 1);
     state.totalPrice =
       state.totalPrice - Number(record.quantity) * Number(record.price);
+  },
+  clearCartItems(state) {
+    state.cart = [];
   }
 };
 
 const actions = {
   deleteItemFromCart({ commit }, order) {
     commit('removeItemFromCart', order);
+  },
+  clearCart({ commit }) {
+    commit('clearCartItems');
   }
 };
 const getters = {
