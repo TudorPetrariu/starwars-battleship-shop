@@ -105,6 +105,7 @@ export default {
     onSubmit(e) {
       e.preventDefault();
       this.show = true;
+      console.log(this.getTotalCartPrice);
     },
     onReset(e) {
       e.preventDefault();

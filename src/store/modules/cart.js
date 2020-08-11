@@ -39,7 +39,7 @@ const getters = {
   getCart: (state) => {
     return state.cart;
   },
-  getTotalCartPrice: () => {
+  getTotalCartPrice: (state) => {
     return state.totalPrice;
   }
 };
