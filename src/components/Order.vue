@@ -72,12 +72,12 @@
 
         <pre>Your order</pre>
 
-        <div v-for="(carItem, i) in getFullCart" :key="i">
+        <div v-for="(carItem, i) in getCart" :key="i">
           <pre>
  {{ carItem.quantity }} x {{ carItem.name }} = {{ carItem.price }} Credits</pre
           >
         </div>
-        <strong>Total {{ getFulPrice }} Credits</strong>
+        <strong>Total {{ getTotalCartPrice }} Credits</strong>
       </b-card-body>
     </b-card>
     <b-button :to="{ name: 'StarShipList' }">Back to StarShips</b-button>
@@ -85,6 +85,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
   data() {
     return {
@@ -98,12 +99,7 @@ export default {
     };
   },
   computed: {
-    getFullCart() {
-      return this.$store.getters['cart/getCart'];
-    },
-    getFulPrice() {
-      return this.$store.getters['cart/getTotalCartPrice'];
-    }
+    ...mapGetters('cart', ['getCart', 'getTotalCartPrice'])
   },
   methods: {
     onSubmit(e) {

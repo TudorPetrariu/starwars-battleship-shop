@@ -12,7 +12,11 @@
       >
       </b-form-input>
 
-      <select v-if="$route.name !== 'Home'" v-model="selectedCategory">
+      <select
+        v-if="$route.name !== 'Home'"
+        v-model="selectedCategory"
+        @change="filterCategories"
+      >
         <option value="All" disabled selected>Filter by:</option>
         <option v-for="(category, index) in categories" :key="index">{{
           category
@@ -40,6 +44,14 @@ export default {
   computed: {
     getAllBattleShips() {
       return this.$store.getters['battleships/getBattleShips'];
+    }
+  },
+  methods: {
+    fetchStarShip() {
+      this.$store.dispatch(
+        'battleships/fetchSearchedBattleship',
+        this.searchTerm
+      );
     },
     filterCategories() {
       switch (this.selectedCategory) {
@@ -78,22 +90,6 @@ export default {
           console.log('Length category selected');
           break;
       }
-    }
-  },
-  watch: {
-    filterCategories: {
-      handler(value) {
-        this.$eventBus.$emit('sortedCategories', value);
-        console.log(value);
-      }
-    }
-  },
-  methods: {
-    fetchStarShip() {
-      this.$store.dispatch(
-        'battleships/fetchSearchedBattleship',
-        this.searchTerm
-      );
     }
   }
 };
