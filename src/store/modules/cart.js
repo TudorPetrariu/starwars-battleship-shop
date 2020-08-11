@@ -18,6 +18,7 @@ const mutations = {
   removeItemFromCart(state, { name }) {
     const record = state.cart.find((element) => element.name === name);
     state.cart.splice(state.cart.indexOf(record), 1);
+
     state.totalPrice =
       state.totalPrice - Number(record.quantity) * Number(record.price);
   },

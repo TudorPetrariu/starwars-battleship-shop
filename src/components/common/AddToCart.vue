@@ -1,7 +1,7 @@
 <template>
   <div>
     <input v-model="quantity" type="number" class="w-50" />
-    <button :disabled="quantity <= 0" class="btn-succes" @click="addItemToCart">
+    <button :disabled="quantity < 0" class="btn-succes" @click="addItemToCart">
       Add to Cart
     </button>
   </div>
@@ -20,7 +20,7 @@ export default {
       const order = {
         name: this.ship.name,
         price: this.ship.cost_in_credits,
-        quantity: this.quantity
+        quantity: this.quantity || 1
       };
       this.$store.commit('cart/setItemToCart', order);
       this.quantity = 0;

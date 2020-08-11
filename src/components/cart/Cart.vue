@@ -2,6 +2,7 @@
   <div>
     <app-header />
     <h3>This is the cart page</h3>
+
     <div v-if="!cartItems.length" class="mt-5">
       <img
         src="../../assets/images/empty-cart.png"
@@ -9,6 +10,12 @@
         class="rounded-circle"
       />
     </div>
+    <b-button
+      :class="{ disabled: cartItems.length === 0 }"
+      :to="{ name: 'CreateOrder' }"
+      >Proceed to Checkout</b-button
+    >
+    <b-button :to="{ name: 'StarShipList' }">Back to StarShips</b-button>
     <div v-for="item in cartItems" :key="item.name">
       <span> Item: {{ item.name }}</span>
       <span> Price: {{ item.price }}</span>
