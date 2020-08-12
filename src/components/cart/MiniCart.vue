@@ -32,6 +32,7 @@
           :to="{ name: 'Cart' }"
           >Go to Cart</b-button
         >
+        <proceed-to-checkout-button v-if="cartItems.length > 0" />
       </div>
     </b-dropdown>
   </div>
@@ -39,9 +40,11 @@
 
 <script>
 import removeItemFromCart from '../common/RemoveItemFromCart.vue';
+import ProceedToCheckoutButton from '../common/ProceedToCheckoutButton.vue';
 export default {
   components: {
-    'remove-item-from-cart': removeItemFromCart
+    'remove-item-from-cart': removeItemFromCart,
+    'proceed-to-checkout-button': ProceedToCheckoutButton
   },
   computed: {
     cartItems() {

@@ -9,7 +9,7 @@
       >
         <b-form-input
           id="input-1"
-          v-model="form.email"
+          v-model="form.userEmail"
           type="email"
           required
           placeholder="Enter email"
@@ -24,22 +24,22 @@
       >
         <b-form-input
           id="input-2"
-          v-model="form.name"
+          v-model="form.userName"
           required
           placeholder="Enter name"
         ></b-form-input>
       </b-form-group>
 
       <b-form-radio-group required>
-        <b-form-radio v-model="form.checked" value="Adress Delivery:"
+        <b-form-radio v-model="form.deliveryMethod" value="Adress Delivery:"
           >Deliver to adress</b-form-radio
         >
-        <b-form-radio v-model="form.checked" value="Pickup from store"
+        <b-form-radio v-model="form.deliveryMethod" value="Pickup from store"
           >Free shipping to pickup points</b-form-radio
         >
       </b-form-radio-group>
       <b-form-group
-        v-if="form.checked === 'Adress Delivery:'"
+        v-if="form.deliveryMethod === 'Adress Delivery:'"
         id="input-group-3"
         label="Address"
         label-for="input-3"
@@ -47,7 +47,7 @@
       >
         <b-form-input
           id="input-3"
-          v-model="form.adress"
+          v-model="form.userAdress"
           required
           placeholder="Enter adress"
         ></b-form-input>
@@ -66,18 +66,21 @@
       title="Order Details"
     >
       <b-card-body class="bg-info">
-        <pre>Full Name: {{ form.name }}</pre>
-        <pre>Confirmation Email: {{ form.email }}</pre>
-        <pre>Delivery: {{ form.checked }} {{ form.adress }}</pre>
+        <pre>Full Name: {{ form.userName }}</pre>
+        <pre>Confirmation Email: {{ form.userEmail }}</pre>
+        <pre>Delivery: {{ form.deliveryMethod }} {{ form.adress }}</pre>
 
         <pre>Your order</pre>
 
         <div v-for="(carItem, i) in getCart" :key="i">
           <pre>
- {{ carItem.quantity }} x {{ carItem.name }} = {{ carItem.price }} Credits</pre
+ {{ carItem.quantity }} x {{ carItem.name }}  Total {{
+              carItem.price
+            }} Credits</pre
           >
         </div>
-        <strong>Total {{ getTotalCartPrice }} Credits</strong>
+
+        <!-- <strong>Total {{ getOrdersHistory }} Credits</strong> -->
       </b-card-body>
     </b-card>
     <b-button :to="{ name: 'StarShipList' }">Back to StarShips</b-button>
@@ -90,30 +93,34 @@ export default {
   data() {
     return {
       form: {
-        email: '',
-        adress: '',
-        name: '',
-        checked: ''
+        userEmail: '',
+        userAdress: '',
+        userName: '',
+        deliveryMethod: ''
       },
       show: false
     };
   },
   computed: {
-    ...mapGetters('cart', ['getCart', 'getTotalCartPrice'])
+    ...mapGetters('cart', ['getCart', 'getOrdersHistory'])
   },
   methods: {
     onSubmit(e) {
       e.preventDefault();
       this.show = true;
-      console.log(this.getTotalCartPrice);
+      this.$store.dispatch('cart/createRecentOrdersList', {
+        finalOrder: this.form,
+        cartItems: this.getCart[0]
+      });
+      console.log(this.getOrdersHistory);
     },
     onReset(e) {
       e.preventDefault();
       // Reset form values
-      this.form.email = '';
-      this.form.name = '';
-      this.form.adress = '';
-      this.form.checked = '';
+      this.form.userEmail = '';
+      this.form.userName = '';
+      this.form.userAdress = '';
+      this.form.deliveryMethod = '';
       this.show = false;
     }
   }

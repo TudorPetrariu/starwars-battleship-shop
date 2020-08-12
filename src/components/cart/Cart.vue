@@ -10,11 +10,12 @@
         class="rounded-circle"
       />
     </div>
-    <b-button
+    <proceed-to-checkout-button />
+    <!-- <b-button
       :class="{ disabled: cartItems.length === 0 }"
       :to="{ name: 'CreateOrder' }"
       >Proceed to Checkout</b-button
-    >
+    > -->
     <b-button :to="{ name: 'StarShipList' }">Back to StarShips</b-button>
     <div v-for="item in cartItems" :key="item.name">
       <span> Item: {{ item.name }}</span>
@@ -30,11 +31,13 @@
 import DetailsPageButton from '../common/DetailsPageButton.vue';
 import RemoveItemFromCart from '../common/RemoveItemFromCart.vue';
 import TheHeader from '../TheHeader.vue';
+import ProceedToCheckoutButton from '../common/ProceedToCheckoutButton.vue';
 export default {
   components: {
     'details-page-button': DetailsPageButton,
     'remove-item-button': RemoveItemFromCart,
-    'app-header': TheHeader
+    'app-header': TheHeader,
+    'proceed-to-checkout-button': ProceedToCheckoutButton
   },
   computed: {
     cartItems() {

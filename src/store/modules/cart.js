@@ -1,9 +1,24 @@
 const state = {
   cart: [],
-  totalPrice: 0
+  totalPrice: 0,
+  ordersHistory: []
 };
 
 const mutations = {
+  setRecentOrders(state, { cartItems, finalOrder }) {
+    state.ordersHistory.push({
+      userName: finalOrder.userName,
+      userEmail: finalOrder.userEmail,
+      deliveryMethod: finalOrder.deliveryMethod,
+      userAdress: finalOrder.userAdress,
+      cartProductName: cartItems.name,
+      cartProductsQuantity: cartItems.quantity,
+      cartProductsPrice: cartItems.price,
+      totalOrderPrice: state.totalPrice
+    });
+    // state.cart = [];
+    state.totalPrice = 0;
+  },
   setItemToCart(state, { name, price, quantity }) {
     const record = state.cart.find((element) => element.name === name);
     !record
@@ -24,10 +39,15 @@ const mutations = {
   },
   clearCartItems(state) {
     state.cart = [];
+    state.totalPrice = 0;
   }
 };
 
 const actions = {
+  createRecentOrdersList({ commit }, recentOrder) {
+    commit('setRecentOrders', recentOrder);
+    console.log(recentOrder);
+  },
   deleteItemFromCart({ commit }, order) {
     commit('removeItemFromCart', order);
   },
@@ -41,6 +61,9 @@ const getters = {
   },
   getTotalCartPrice: (state) => {
     return state.totalPrice;
+  },
+  getOrdersHistory: (state) => {
+    return state.ordersHistory;
   }
 };
 

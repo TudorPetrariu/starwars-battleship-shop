@@ -56,7 +56,7 @@ export default {
     filterCategories() {
       switch (this.selectedCategory) {
         case 'HyperDrive':
-          this.getAllBattleShips.sort(
+          return this.getAllBattleShips.sort(
             (a, b) => b.hyperdrive_rating - a.hyperdrive_rating
           );
 
@@ -67,6 +67,7 @@ export default {
           return this.getAllBattleShips.sort(
             (a, b) => b.cargo_capacity - a.cargo_capacity
           );
+          console.log('Cargo Capacity category selected');
           break;
 
         case 'Passengers':
