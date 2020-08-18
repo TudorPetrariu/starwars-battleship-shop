@@ -16,7 +16,7 @@ const mutations = {
       cartProductsPrice: cartItems.price,
       totalOrderPrice: state.totalPrice
     });
-    // state.cart = [];
+    state.cart = [];
     state.totalPrice = 0;
     console.log(state.ordersHistory);
   },

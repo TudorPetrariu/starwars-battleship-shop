@@ -18,6 +18,7 @@
       </b-nav-item>
       <mini-cart />
       <b-nav-item
+        v-if="ordersHistory.length"
         variant="transparent"
         active-class="active bg-warning"
         :to="{ name: 'OrderHistory' }"
@@ -33,6 +34,11 @@ import MiniCart from '../components/cart/MiniCart.vue';
 export default {
   components: {
     'mini-cart': MiniCart
+  },
+  computed: {
+    ordersHistory() {
+      return this.$store.getters['cart/getOrdersHistory'];
+    }
   }
 };
 </script>

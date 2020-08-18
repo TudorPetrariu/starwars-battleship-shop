@@ -1,16 +1,18 @@
 <template>
-  <div class="d-flex mb-3">
-    <b-form-input v-model="quantity" size="sm" class="mr-2" type="number" />
-
-    <b-button
-      class="w-75"
-      size="sm"
-      :disabled="quantity < 0"
-      variant="success"
-      @click="addItemToCart"
-    >
-      Add to Cart
-    </b-button>
+  <div>
+    <div class="d-flex justify-content-around">
+      <b-form-input v-model="quantity" class="col-3" size="sm" type="number" />
+      <b-button
+        size="sm"
+        class="ml-1"
+        :disabled="quantity < 0"
+        variant="success"
+        @click="addItemToCart"
+      >
+        Add to Cart
+      </b-button>
+    </div>
+    <div></div>
   </div>
 </template>
 

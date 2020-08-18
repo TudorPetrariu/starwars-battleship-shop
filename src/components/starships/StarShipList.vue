@@ -1,14 +1,14 @@
 <template>
-  <div>
+  <b-container>
     <app-header />
     <h1>Starships getBattleShips</h1>
     <search-filter />
-    <b-row cols-lg="3">
+    <b-row cols-lg="2">
       <starship-item
         v-for="pages in showNext10Items"
         :key="pages.model"
         :pages="pages"
-        class="my-3"
+        class="my-2"
       />
     </b-row>
     <!-- Pagination -->
@@ -31,7 +31,7 @@
       </div>
     </div>
     <!-- End of Pagination -->
-  </div>
+  </b-container>
 </template>
 
 <script>
