@@ -18,6 +18,7 @@ const mutations = {
     });
     // state.cart = [];
     state.totalPrice = 0;
+    console.log(state.ordersHistory);
   },
   setItemToCart(state, { name, price, quantity }) {
     const record = state.cart.find((element) => element.name === name);

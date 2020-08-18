@@ -3,11 +3,14 @@
     <app-header />
     <h1>Starships getBattleShips</h1>
     <search-filter />
-    <starship-item
-      v-for="pages in showNext10Items"
-      :key="pages.model"
-      :pages="pages"
-    />
+    <b-row cols-lg="3">
+      <starship-item
+        v-for="pages in showNext10Items"
+        :key="pages.model"
+        :pages="pages"
+        class="my-3"
+      />
+    </b-row>
     <!-- Pagination -->
     <div>
       <div class="my-4">

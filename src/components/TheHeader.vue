@@ -1,18 +1,29 @@
 <template>
   <b-nav id="nav" pills small class="container">
-    <b-navbar-brand to="/">StarShips</b-navbar-brand>
+    <b-navbar-brand type="light" to="/">StarShips</b-navbar-brand>
     <div class="ml-auto d-flex jutify-content-end">
       <b-nav-item
-        class="text-white"
-        active-class="active"
+        variant="outline-dark"
+        active-class="active bg-warning"
         exact
         :to="{ name: 'Home' }"
         >Home
       </b-nav-item>
-      <b-nav-item active-class="active" :to="{ name: 'StarShipList' }">
+      <b-nav-item
+        variant="transparent"
+        active-class="active bg-warning"
+        :to="{ name: 'StarShipList' }"
+      >
         StarShips
       </b-nav-item>
       <mini-cart />
+      <b-nav-item
+        variant="transparent"
+        active-class="active bg-warning"
+        :to="{ name: 'OrderHistory' }"
+      >
+        Orders
+      </b-nav-item>
     </div>
   </b-nav>
 </template>
@@ -26,4 +37,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style sass>
+a {
+  color: white;
+}
+</style>

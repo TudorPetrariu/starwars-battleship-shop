@@ -3,6 +3,7 @@ import StarShipList from './components/starships/StarShipList.vue';
 import StarShipDetailsPage from './components/starships/StarShipDetailsPage.vue';
 import Cart from './components/cart/Cart.vue';
 import Order from './components/order/Order.vue';
+import OrderHistory from './components/order/OrderHistory.vue';
 
 export const routes = [
   { path: '/', component: Home, name: 'Home' },
@@ -17,6 +18,7 @@ export const routes = [
     component: Order,
     name: 'CreateOrder'
   },
+  { path: 'history-order', component: OrderHistory, name: 'OrderHistory' },
 
   {
     path: '/starships/:id',

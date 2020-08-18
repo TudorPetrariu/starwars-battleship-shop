@@ -1,9 +1,12 @@
 <template>
   <div>
-    <b-dropdown right variant="primary" no-caret>
+    <b-dropdown right variant="transparent" no-caret>
       <template v-slot:button-content>
-        <b-icon icon="cart"></b-icon>
-        <b-badge variant="light">4</b-badge>
+        <b-badge
+          variant="transparent"
+          class="text-white d-flex flex-row-reverse justify-content-center align-items-center"
+          >4 <b-icon icon="cart"></b-icon>
+        </b-badge>
       </template>
 
       <div v-for="cartItem in cartItems" :key="cartItem.name">

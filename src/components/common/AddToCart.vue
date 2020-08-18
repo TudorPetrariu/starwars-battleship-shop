@@ -1,9 +1,16 @@
 <template>
-  <div>
-    <input v-model="quantity" type="number" class="w-50" />
-    <button :disabled="quantity < 0" class="btn-succes" @click="addItemToCart">
+  <div class="d-flex mb-3">
+    <b-form-input v-model="quantity" size="sm" class="mr-2" type="number" />
+
+    <b-button
+      class="w-75"
+      size="sm"
+      :disabled="quantity < 0"
+      variant="success"
+      @click="addItemToCart"
+    >
       Add to Cart
-    </button>
+    </b-button>
   </div>
 </template>
 
