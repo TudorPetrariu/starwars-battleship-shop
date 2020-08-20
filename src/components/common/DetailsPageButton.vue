@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <b-button
-      variant="warning"
-      size="sm"
-      :to="{ name: 'StarShipDetailsPage', params: { id: name } }"
-    >
-      Ship Details
-    </b-button>
-  </div>
+  <b-button
+    variant="warning"
+    size="sm"
+    :to="{ name: 'StarShipDetailsPage', params: { id: name } }"
+  >
+    Ship Details
+  </b-button>
 </template>
 
 <script>

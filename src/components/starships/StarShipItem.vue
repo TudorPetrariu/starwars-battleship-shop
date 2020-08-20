@@ -1,27 +1,66 @@
 <template>
   <b-container>
-    <b-card-group deck class="d-flex justify-content-center">
-      <b-card style="max-width: 350px;">
-        <h5 small class="text-center">{{ pages.model }}</h5>
-        <b-card-text class="d-flex justify-content-around">
-          <div class="d-flex flex-column">
-            <span>HyperDrive Rating </span>
-            <span>Cargo Capacity </span>
-            <span>Passenger capacity</span>
-            <span>Ship Length</span>
-            <span>Ship Price</span>
-          </div>
-          <div class="d-flex flex-column align-items-end">
-            <span>{{ pages.cargo_capacity }}</span>
-            <span> {{ pages.passengers }}</span>
-            <span> {{ pages.length }}</span>
-            <span> {{ pages.cost_in_credits }}</span>
-          </div>
-        </b-card-text>
-        <div class="d-flex">
-          <details-page-button class="col-5" :name="pages.name" />
+    <b-card-group deck>
+      <b-card
+        overlay
+        class="mt-5"
+        :img-src="require('../../assets/images/card-photo.jpg')"
+      >
+        <h5 class="text-center text-white">
+          <strong>
+            <em>{{ pages.model }}</em>
+          </strong>
+        </h5>
+        <b-list-group flush class="text-white d-flex">
+          <b-list-group-item
+            class="d-flex justify-content-between align-items-center"
+          >
+            <b-badge variant="warning" class="text-warning text-dark" pill>
+              HyperDrive Rating
+            </b-badge>
+            <b-badge variant="dark" class="w-50 text-warning" pill>{{
+              pages.hyperdrive_rating
+            }}</b-badge>
+          </b-list-group-item>
+
+          <b-list-group-item
+            class="d-flex justify-content-between mt-4 align-items-center"
+          >
+            Cargo Capacity
+            <b-badge variant="info" class="w-50" pill>{{
+              pages.cargo_capacity
+            }}</b-badge>
+          </b-list-group-item>
+
+          <b-list-group-item
+            class="d-flex justify-content-between mt-4 align-items-center"
+          >
+            Passenger capacity
+            <b-badge variant="info" class="w-50" pill>{{
+              pages.passengers
+            }}</b-badge>
+          </b-list-group-item>
+          <b-list-group-item
+            class="d-flex justify-content-between mt-4 align-items-center"
+          >
+            Ship Length
+            <b-badge variant="info" class="w-50" pill>{{
+              pages.length
+            }}</b-badge>
+          </b-list-group-item>
+          <b-list-group-item
+            class="d-flex justify-content-between mt-4 align-items-center"
+          >
+            Ship Price
+            <b-badge variant="info" class="w-50" pill>{{
+              pages.cost_in_credits
+            }}</b-badge>
+          </b-list-group-item>
+        </b-list-group>
+        <b-card-footer class="d-flex p-2">
+          <details-page-button class="col-lg-4 mr-1" :name="pages.name" />
           <add-to-cart :ship="pages" />
-        </div>
+        </b-card-footer>
       </b-card>
     </b-card-group>
   </b-container>
@@ -41,7 +80,11 @@ export default {
 </script>
 
 <style>
-.carrd {
-  border: black 2px solid;
+.list-group {
+  margin-top: 3em;
+}
+.list-group-item {
+  background-color: transparent;
+  border-bottom-color: white;
 }
 </style>

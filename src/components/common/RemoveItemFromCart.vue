@@ -1,7 +1,7 @@
 <template>
-  <div @click="makeToast">
-    <b-button class="bg-dark" @click="removeItem">
-      <b-badge variant="warning">Remove</b-badge>
+  <div class="d-flex align-items-center" @click="makeToast">
+    <b-button pill size="sm" variant="warning" @click="removeItem">
+      <b-badge pill variant="dark" class="p-2">Remove</b-badge>
     </b-button>
   </div>
 </template>

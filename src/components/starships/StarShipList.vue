@@ -3,7 +3,7 @@
     <app-header />
     <h1>Starships getBattleShips</h1>
     <search-filter />
-    <b-row cols-lg="2">
+    <b-row cols-lg="3">
       <starship-item
         v-for="pages in showNext10Items"
         :key="pages.model"

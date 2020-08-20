@@ -1,6 +1,8 @@
 <template>
   <div>
-    <b-button :to="{ name: 'CreateOrder' }">Proceed to Checkout</b-button>
+    <b-button size="sm" :to="{ name: 'CreateOrder' }"
+      >Proceed to Checkout</b-button
+    >
   </div>
 </template>
 

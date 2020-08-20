@@ -8,34 +8,51 @@
           >4 <b-icon icon="cart"></b-icon>
         </b-badge>
       </template>
-
-      <div v-for="cartItem in cartItems" :key="cartItem.name">
-        <div class="d-flex justify-content-between">
-          <b-dropdown-item>
-            {{ cartItem.name }} <br />
-            {{ cartItem.quantity }} x {{ cartItem.price }}
-          </b-dropdown-item>
-          <remove-item-from-cart :ship="cartItem" />
-        </div>
-      </div>
-
-      <div class="bg--danger d-flex justify-content-between">
-        <div>
-          <b-dropdown-item>Total {{ getTotalCartPrice }} </b-dropdown-item>
-        </div>
-
-        <b-button size="sm" variant="outline-dark" @click="clearCartItems">
-          <b-icon icon="trash-fill" aria-hidden="true"></b-icon>
-          Clear Cart
-        </b-button>
-      </div>
       <div>
-        <b-button
-          class="d-flex justify-content-center align-items-center"
-          :to="{ name: 'Cart' }"
-          >Go to Cart</b-button
-        >
-        <proceed-to-checkout-button v-if="cartItems.length > 0" />
+        <div v-for="cartItem in cartItems" :key="cartItem.name">
+          <div class="d-flex justify-content-between mr-1">
+            <b-dropdown-item
+              :to="{
+                name: 'StarShipDetailsPage',
+                params: { id: cartItem.name }
+              }"
+            >
+              {{ cartItem.name }} <br />
+              <small> {{ cartItem.quantity }} x {{ cartItem.price }}</small>
+            </b-dropdown-item>
+            <div>
+              <remove-item-from-cart :ship="cartItem" />
+            </div>
+          </div>
+          <b-dropdown-divider></b-dropdown-divider>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <div>
+            <b-dropdown-item>Total {{ getTotalCartPrice }} </b-dropdown-item>
+          </div>
+
+          <b-button
+            size="sm"
+            variant="outline-dark"
+            class="mr-1 text-white clear-cart"
+            @click="clearCartItems"
+          >
+            <b-icon icon="trash-fill" class="de" aria-hidden="true"></b-icon>
+            Clear Cart
+          </b-button>
+        </div>
+        <b-dropdown-divider></b-dropdown-divider>
+
+        <div class="d-flex justify-content-around mt-3">
+          <proceed-to-checkout-button v-if="cartItems.length > 0" />
+          <b-button
+            size="sm"
+            class="d-flex justify-content-center align-items-center col-6"
+            :to="{ name: 'Cart' }"
+            >Go to Cart</b-button
+          >
+        </div>
       </div>
     </b-dropdown>
   </div>
@@ -73,4 +90,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.clear-cart {
+  background-color: #1c3b4f;
+
+  svg {
+    color: #d49f4b;
+  }
+}
+</style>
