@@ -13,7 +13,7 @@ export default {
 </script>
 <style>
 body {
-  background-image: url('./assets/images/HomeBackground.png');
+  background-image: url('./assets/images/x-wing-green-wallpaper.jpg');
   height: 100%;
   background-attachment: fixed;
   background-position: center;

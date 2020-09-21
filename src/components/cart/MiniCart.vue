@@ -5,7 +5,10 @@
         <b-badge
           variant="transparent"
           class="text-white d-flex flex-row-reverse justify-content-center align-items-center"
-          >4 <b-icon icon="cart"></b-icon>
+          ><span v-if="getTotalCartQuantity > 0">{{
+            getTotalCartQuantity
+          }}</span>
+          <b-icon icon="cart"></b-icon>
         </b-badge>
       </template>
       <div>
@@ -72,6 +75,9 @@ export default {
     },
     getTotalCartPrice() {
       return this.$store.getters['cart/getTotalCartPrice'];
+    },
+    getTotalCartQuantity() {
+      return this.$store.getters['cart/getTotalCartQuantity'];
     }
   },
   methods: {

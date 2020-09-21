@@ -1,6 +1,7 @@
 const state = {
   cart: [],
-  totalPrice: 0,
+  totalCartPrice: 0,
+  totalCartQuantity: 0,
   ordersHistory: []
 };
 
@@ -14,10 +15,11 @@ const mutations = {
       cartProductName: cartItems.name,
       cartProductsQuantity: cartItems.quantity,
       cartProductsPrice: cartItems.price,
-      totalOrderPrice: state.totalPrice
+      totalOrderPrice: state.totalCartPrice
     });
     state.cart = [];
-    state.totalPrice = 0;
+    state.totalCartPrice = 0;
+    state.totalCartQuantity = 0;
     console.log(state.ordersHistory);
   },
   setItemToCart(state, { name, price, quantity }) {
@@ -29,18 +31,22 @@ const mutations = {
           price
         })
       : (record.quantity = Number(quantity) + Number(record.quantity));
-    state.totalPrice = state.totalPrice + Number(quantity) * Number(price);
+    state.totalCartPrice =
+      state.totalCartPrice + Number(quantity) * Number(price);
+    state.totalCartQuantity = quantity += state.totalCartQuantity;
   },
   removeItemFromCart(state, { name }) {
     const record = state.cart.find((element) => element.name === name);
     state.cart.splice(state.cart.indexOf(record), 1);
 
-    state.totalPrice =
-      state.totalPrice - Number(record.quantity) * Number(record.price);
+    state.totalCartPrice =
+      state.totalCartPrice - Number(record.quantity) * Number(record.price);
+    state.totalCartQuantity = state.totalCartQuantity - record.quantity;
   },
   clearCartItems(state) {
     state.cart = [];
-    state.totalPrice = 0;
+    state.totalCartPrice = 0;
+    state.totalCartQuantity = 0;
   }
 };
 
@@ -61,7 +67,10 @@ const getters = {
     return state.cart;
   },
   getTotalCartPrice: (state) => {
-    return state.totalPrice;
+    return state.totalCartPrice;
+  },
+  getTotalCartQuantity: (state) => {
+    return state.totalCartQuantity;
   },
   getOrdersHistory: (state) => {
     return state.ordersHistory;

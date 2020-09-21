@@ -1,17 +1,13 @@
 <template>
   <b-container>
     <b-card-group deck>
-      <b-card
-        overlay
-        class="mt-5"
-        :img-src="require('../../assets/images/card-photo.jpg')"
-      >
-        <h5 class="text-center text-white">
+      <b-card overlay class="mt-5" style="min-height: 500px;">
+        <h5 class="text-center text-muted">
           <strong>
             <em>{{ pages.model }}</em>
           </strong>
         </h5>
-        <b-list-group flush class="text-white d-flex">
+        <b-list-group flush class="d-flex mb-5">
           <b-list-group-item
             class="d-flex justify-content-between align-items-center"
           >
@@ -26,8 +22,10 @@
           <b-list-group-item
             class="d-flex justify-content-between mt-4 align-items-center"
           >
-            Cargo Capacity
-            <b-badge variant="info" class="w-50" pill>{{
+            <b-badge variant="warning" class="text-warning text-dark" pill>
+              Cargo Capacity
+            </b-badge>
+            <b-badge variant="dark" class="w-50 text-warning" pill>{{
               pages.cargo_capacity
             }}</b-badge>
           </b-list-group-item>
@@ -35,24 +33,30 @@
           <b-list-group-item
             class="d-flex justify-content-between mt-4 align-items-center"
           >
-            Passenger capacity
-            <b-badge variant="info" class="w-50" pill>{{
+            <b-badge variant="warning" class="text-warning text-dark" pill>
+              Passenger Capacity
+            </b-badge>
+            <b-badge variant="dark" class="w-50 text-warning" pill>{{
               pages.passengers
             }}</b-badge>
           </b-list-group-item>
           <b-list-group-item
             class="d-flex justify-content-between mt-4 align-items-center"
           >
-            Ship Length
-            <b-badge variant="info" class="w-50" pill>{{
+            <b-badge variant="warning" class="text-warning text-dark" pill>
+              Ship Length
+            </b-badge>
+            <b-badge variant="dark" class="w-50 text-warning" pill>{{
               pages.length
             }}</b-badge>
           </b-list-group-item>
           <b-list-group-item
             class="d-flex justify-content-between mt-4 align-items-center"
           >
-            Ship Price
-            <b-badge variant="info" class="w-50" pill>{{
+            <b-badge variant="warning" class="text-warning text-dark" pill>
+              Ship Price
+            </b-badge>
+            <b-badge variant="dark" class="w-50 text-warning" pill>{{
               pages.cost_in_credits
             }}</b-badge>
           </b-list-group-item>
@@ -80,11 +84,15 @@ export default {
 </script>
 
 <style>
+.card {
+  background-color: #08192b;
+  opacity: 80%;
+}
 .list-group {
   margin-top: 3em;
 }
 .list-group-item {
   background-color: transparent;
-  border-bottom-color: white;
+  border-bottom-color: rgb(0, 0, 0);
 }
 </style>
