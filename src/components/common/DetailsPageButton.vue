@@ -1,8 +1,9 @@
 <template>
   <b-button
-    variant="warning"
+    class="details-page-btn"
     size="sm"
     :to="{ name: 'StarShipDetailsPage', params: { id: name } }"
+    @click="fetchMoreBattleshipDetails"
   >
     Ship Details
   </b-button>
@@ -10,7 +11,12 @@
 
 <script>
 export default {
-  props: ['name']
+  props: ['name'],
+  methods: {
+    fetchMoreBattleshipDetails() {
+      this.$store.dispatch('battleships/fetchBattleshipDetails');
+    }
+  }
 };
 </script>
 

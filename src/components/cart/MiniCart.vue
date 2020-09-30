@@ -2,14 +2,16 @@
   <div>
     <b-dropdown right variant="transparent" no-caret>
       <template v-slot:button-content>
-        <b-badge
-          variant="transparent"
-          class="text-white d-flex flex-row-reverse justify-content-center align-items-center"
-          ><span v-if="getTotalCartQuantity > 0">{{
-            getTotalCartQuantity
-          }}</span>
-          <b-icon icon="cart"></b-icon>
-        </b-badge>
+        <b-nav-item>
+          <b-badge
+            variant="transparent"
+            class="text-white d-flex flex-row-reverse justify-content-center align-items-center"
+            ><span v-if="getTotalCartQuantity > 0">{{
+              getTotalCartQuantity
+            }}</span>
+            <b-icon icon="cart"></b-icon>
+          </b-badge>
+        </b-nav-item>
       </template>
       <div>
         <div v-for="cartItem in cartItems" :key="cartItem.name">

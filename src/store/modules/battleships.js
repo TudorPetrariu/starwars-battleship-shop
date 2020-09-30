@@ -4,13 +4,18 @@ import { mockedData2 } from '../../assets/mock-data2.js';
 export const state = {
   starWarsBattleships: [],
   battleShipsNextPage: '',
-  searchedBattleship: {}
+  searchedBattleship: {},
+  battleShipDetails: [],
+  battleShipMovieDetails: {}
 };
 
 const mutations = {
   setBattleships: (state, payload) => {
     state.starWarsBattleships = payload.results;
     state.battleShipsNextPage = payload.next;
+  },
+  setBattleshipDetails: (state, payload) => {
+    state.battleShipMovieDetails = payload;
   },
   setNextPage: (state, payload) => {
     state.starWarsBattleships = state.starWarsBattleships.concat(
@@ -29,15 +34,34 @@ const getters = {
   getBattleShips: (state) => {
     return state.starWarsBattleships;
   },
+  getbattleShipMovieDetails: (state) => {
+    return state.battleShipMovieDetails;
+  },
   getBattleShipDetails: (state) => (name) => {
     const findShipDetails = state.starWarsBattleships.find(
       (ship) => ship.name === name
     );
-    return findShipDetails;
+    state.battleShipDetails = findShipDetails;
+    console.log(state.battleShipDetails);
+    return state.battleShipDetails;
   }
 };
 
 const actions = {
+  async fetchBattleshipDetails({ state, commit }) {
+    const filmsAppearanceUrls = state.battleShipDetails.films;
+    try {
+      Promise.all(
+        filmsAppearanceUrls.map((url) =>
+          fetch(url).then((response) => response.json())
+        )
+      ).then((data) => {
+        commit('setBattleshipDetails', data);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  },
   async fetchSearchedBattleship({ commit }, payload) {
     const url = 'https://swapi.dev/api/starships/?search=';
     try {

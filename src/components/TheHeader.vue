@@ -1,28 +1,13 @@
 <template>
   <b-nav id="nav" pills small class="container">
     <b-navbar-brand type="light" to="/">StarShips</b-navbar-brand>
-    <div class="ml-auto d-flex jutify-content-end">
-      <b-nav-item
-        variant="outline-dark"
-        active-class="active bg-warning"
-        exact
-        :to="{ name: 'Home' }"
-        >Home
-      </b-nav-item>
-      <b-nav-item
-        variant="transparent"
-        active-class="active bg-warning"
-        :to="{ name: 'StarShipList' }"
-      >
+    <div class="ml-auto d-flex align-items-center">
+      <b-nav-item exact :to="{ name: 'Home' }">Home </b-nav-item>
+      <b-nav-item :to="{ name: 'StarShipList' }">
         StarShips
       </b-nav-item>
       <mini-cart />
-      <b-nav-item
-        v-if="ordersHistory.length"
-        variant="transparent"
-        active-class="active bg-warning"
-        :to="{ name: 'OrderHistory' }"
-      >
+      <b-nav-item v-if="ordersHistory.length" :to="{ name: 'OrderHistory' }">
         Orders
       </b-nav-item>
     </div>
@@ -42,9 +27,3 @@ export default {
   }
 };
 </script>
-
-<style sass>
-a {
-  color: white;
-}
-</style>

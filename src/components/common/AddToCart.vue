@@ -2,10 +2,9 @@
   <div class="d-flex">
     <b-form-input v-model="quantity" class="col" size="sm" type="number" />
     <b-button
-      class="ml-1"
+      class="ml-1 add-to-cart-btn"
       size="sm"
       :disabled="quantity < 0"
-      variant="success"
       @click="addItemToCart"
     >
       Add to Cart

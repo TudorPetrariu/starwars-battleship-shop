@@ -1,7 +1,9 @@
 <template>
   <b-container>
     <app-header />
-    <h1>Starships getBattleShips</h1>
+    <b-jumbotron
+      ><h1>The Star Wars battleships that you've ever wanted</h1></b-jumbotron
+    >
     <search-filter />
     <b-row cols-lg="3">
       <starship-item
