@@ -1,22 +1,128 @@
 <template>
   <div>
     <app-header />
-    <b-container class="d-flex justify-content-center align-items-center">
-      <b-jumbotron fluid class="mr-5 mt-5">
-        <h1>Battleship Details page</h1>
-        <div>
-          {{ getbattleShipInfo.name }}
+    <b-container>
+      <div
+        header="Battleship Details page"
+        fluid
+        class="mr-5 mt-5 d-flex justify-content-center"
+      >
+        <div class="col-6">
+          <b-list-group flush>
+            <b-list-group-item
+              class="d-flex justify-content-between align-items-center text-white"
+            >
+              Battleship
+              <b-badge variant="primary" pill>{{
+                getbattleShipInfo.name
+              }}</b-badge>
+            </b-list-group-item>
+
+            <b-list-group-item
+              class="d-flex justify-content-between align-items-center text-white"
+            >
+              Battleship Model
+              <b-badge variant="primary" pill>{{
+                getbattleShipInfo.model
+              }}</b-badge>
+            </b-list-group-item>
+
+            <b-list-group-item
+              class="d-flex justify-content-between align-items-center text-white"
+            >
+              Company
+              <b-badge variant="primary" pill>{{
+                getbattleShipInfo.manufacturer
+              }}</b-badge>
+            </b-list-group-item>
+            <b-list-group-item
+              class="d-flex justify-content-between align-items-center text-white"
+            >
+              Megalight
+              <v-b-tooltip>
+                <b-badge
+                  style="cursor: pointer;"
+                  title="A megalight, abbreviated MGLT, was a standard unit of distance in space."
+                  variant="primary"
+                  pill
+                  >{{ getbattleShipInfo.MGLT }} MGLT</b-badge
+                >
+              </v-b-tooltip>
+            </b-list-group-item>
+            <b-list-group-item
+              class="d-flex justify-content-between align-items-center text-white"
+            >
+              Starship Class
+              <b-badge variant="primary" pill>
+                {{ getbattleShipInfo.starship_class }}</b-badge
+              >
+            </b-list-group-item>
+            <b-list-group-item
+              class="d-flex justify-content-between align-items-center text-white"
+            >
+              Crew Capacity
+              <b-badge variant="primary" pill>
+                {{ getbattleShipInfo.crew }}</b-badge
+              >
+            </b-list-group-item>
+            <b-list-group-item
+              class="d-flex justify-content-between align-items-center text-white"
+            >
+              Passengers Capacity
+              <b-badge variant="primary" pill>
+                {{ getbattleShipInfo.passengers }}</b-badge
+              >
+            </b-list-group-item>
+            <b-list-group-item
+              class="d-flex justify-content-between align-items-center text-white"
+            >
+              Cargo Capacity
+              <b-badge variant="primary" pill>
+                {{ getbattleShipInfo.cargo_capacity }}</b-badge
+              >
+            </b-list-group-item>
+
+            <b-list-group-item
+              class="d-flex justify-content-between align-items-center text-white"
+            >
+              Consumables consumption rate
+              <b-badge variant="primary" pill>
+                {{ getbattleShipInfo.consumables }}</b-badge
+              >
+            </b-list-group-item>
+            <b-list-group-item
+              class="d-flex justify-content-between align-items-center text-white"
+            >
+              Length
+              <b-badge variant="primary" pill>
+                {{ getbattleShipInfo.length }}m</b-badge
+              >
+            </b-list-group-item>
+          </b-list-group>
+          <add-to-cart-buttton :ship="getbattleShipInfo" />
         </div>
-      </b-jumbotron>
-      <div>
-        <b-jumbotron
-          ><div v-for="item in getbattleShipMovies" :key="item.name">
-            {{ item.title }}
-          </div>
-        </b-jumbotron>
-        <b-jumbotron>
-          <add-to-cart-buttton :ship="getbattleShipInfo"></add-to-cart-buttton>
-        </b-jumbotron>
+      </div>
+      <b-card>
+        <h4 class="text-white text-center p-2">
+          Movies where {{ getbattleShipInfo.name }} appeared
+        </h4>
+      </b-card>
+      <div class="d-flex">
+        <div v-for="item in getbattleShipMovies" :key="item.name">
+          <b-jumbotron id="jmb-movie-details" class="rounded py-4">
+            Episode {{ item.episode_id }} -
+            <b-badge>{{ item.title }}</b-badge>
+            <br />
+            <small><b-badge>Year</b-badge>{{ item.release_date }}</small>
+            <br />
+            <small> <b-badge>Director</b-badge> {{ item.director }}</small>
+            <br />
+            <small>
+              <b-badge>Opening crawl</b-badge> {{ item.opening_crawl }}</small
+            >
+            <br />
+          </b-jumbotron>
+        </div>
       </div>
     </b-container>
   </div>

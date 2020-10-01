@@ -1,5 +1,5 @@
 <template>
-  <b-container class="ma">
+  <b-container>
     <b-card-group deck>
       <b-card overlay class="mt-5" style="min-height: 400px;">
         <h5 class="text-center text-white">
