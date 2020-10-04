@@ -1,13 +1,13 @@
 <template>
   <div>
-    <app-header />
+    <app-nav />
     <b-container>
       <div
         header="Battleship Details page"
         fluid
         class="mr-5 mt-5 d-flex justify-content-center"
       >
-        <div class="col-6">
+        <div class="ship-details-card">
           <b-list-group flush>
             <b-list-group-item
               class="d-flex justify-content-between align-items-center text-white"
@@ -102,12 +102,12 @@
           <add-to-cart-buttton :ship="getbattleShipInfo" />
         </div>
       </div>
-      <b-card>
+      <div class="bg-info p-5 mt-5">
         <h4 class="text-white text-center p-2">
           Movies where {{ getbattleShipInfo.name }} appeared
         </h4>
-      </b-card>
-      <div class="d-flex">
+      </div>
+      <div class="d-flex mt-5">
         <div v-for="item in getbattleShipMovies" :key="item.name">
           <b-jumbotron id="jmb-movie-details" class="rounded py-4">
             Episode {{ item.episode_id }} -
@@ -129,10 +129,10 @@
 </template>
 <script>
 import AddToCart from '../common/AddToCart.vue';
-import TheHeader from '../TheHeader';
+import NavBar from '../NavBar';
 
 export default {
-  components: { 'add-to-cart-buttton': AddToCart, 'app-header': TheHeader },
+  components: { 'add-to-cart-buttton': AddToCart, 'app-nav': NavBar },
   props: ['id'],
   computed: {
     getbattleShipInfo() {

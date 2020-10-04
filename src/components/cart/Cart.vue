@@ -1,8 +1,7 @@
 <template>
   <div>
-    <app-header />
+    <app-nav />
     <h3>This is the cart page</h3>
-
     <div v-if="!cartItems.length" class="mt-5">
       <img
         src="../../assets/images/empty-cart.png"
@@ -11,11 +10,6 @@
       />
     </div>
     <proceed-to-checkout-button />
-    <!-- <b-button
-      :class="{ disabled: cartItems.length === 0 }"
-      :to="{ name: 'CreateOrder' }"
-      >Proceed to Checkout</b-button
-    > -->
     <b-button :to="{ name: 'StarShipList' }">Back to StarShips</b-button>
     <div v-for="item in cartItems" :key="item.name">
       <span> Item: {{ item.name }}</span>
@@ -30,13 +24,13 @@
 <script>
 import DetailsPageButton from '../common/DetailsPageButton.vue';
 import RemoveItemFromCart from '../common/RemoveItemFromCart.vue';
-import TheHeader from '../TheHeader.vue';
+import NavBar from '../NavBar.vue';
 import ProceedToCheckoutButton from '../common/ProceedToCheckoutButton.vue';
 export default {
   components: {
     'details-page-button': DetailsPageButton,
     'remove-item-button': RemoveItemFromCart,
-    'app-header': TheHeader,
+    'app-nav': NavBar,
     'proceed-to-checkout-button': ProceedToCheckoutButton
   },
   computed: {
@@ -46,5 +40,3 @@ export default {
   }
 };
 </script>
-
-<style scoped></style>

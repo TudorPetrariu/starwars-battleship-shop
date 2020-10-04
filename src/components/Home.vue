@@ -1,7 +1,7 @@
 <template>
   <div id="home">
+    <app-nav />
     <app-header />
-    <search-filters />
     <b-card v-for="ship in showResults" :key="ship.model" class="container">
       <template v-slot:header>
         <h4 class="mb-0 text-center">{{ ship.name }}</h4>
@@ -39,12 +39,12 @@
 </template>
 
 <script>
-import SearchFilter from './common/SearchFilter.vue';
+import NavBar from './NavBar.vue';
 import TheHeader from './TheHeader.vue';
 
 export default {
   components: {
-    'search-filters': SearchFilter,
+    'app-nav': NavBar,
     'app-header': TheHeader
   },
   computed: {

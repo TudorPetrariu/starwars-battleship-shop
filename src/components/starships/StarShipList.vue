@@ -1,50 +1,54 @@
 <template>
-  <b-container>
-    <app-header />
-    <b-jumbotron
-      ><h1>The Star Wars battleships that you've ever wanted</h1></b-jumbotron
-    >
-    <search-filter />
-    <b-row cols-lg="3">
-      <starship-item
-        v-for="pages in showNext10Items"
-        :key="pages.model"
-        :pages="pages"
-        class="my-2"
-      />
-    </b-row>
-    <!-- Pagination -->
-    <div>
-      <div class="my-4">
-        <ul class="pagination pagination-md justify-content-center text-center">
-          <li :class="currentPage === 1 ? 'disabled' : ''" class="page-item">
-            <a class="page-link" @click="prevPage">Previous</a>
-          </li>
-          <li class="page-link" style="background-color: inherit;">
-            {{ currentPage }} of 4
-          </li>
-          <li
-            :class="currentPage === lastPage ? 'disabled' : ''"
-            class="page-item"
+  <div id="starships">
+    <app-nav />
+    <b-container>
+      <b-jumbotron
+        ><h1>The Star Wars battleships that you've ever wanted</h1></b-jumbotron
+      >
+      <search-filter />
+      <b-row cols-lg="3">
+        <starship-item
+          v-for="pages in showNext10Items"
+          :key="pages.model"
+          :pages="pages"
+          class="my-2"
+        />
+      </b-row>
+      <!-- Pagination -->
+      <div>
+        <div class="my-4">
+          <ul
+            class="pagination pagination-md justify-content-center text-center"
           >
-            <a class="page-link" @click="nextPage">Next</a>
-          </li>
-        </ul>
+            <li :class="currentPage === 1 ? 'disabled' : ''" class="page-item">
+              <a class="page-link" @click="prevPage">Previous</a>
+            </li>
+            <li class="page-link" style="background-color: inherit;">
+              {{ currentPage }} of 4
+            </li>
+            <li
+              :class="currentPage === lastPage ? 'disabled' : ''"
+              class="page-item"
+            >
+              <a class="page-link" @click="nextPage">Next</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <!-- End of Pagination -->
-  </b-container>
+      <!-- End of Pagination -->
+    </b-container>
+  </div>
 </template>
 
 <script>
 import StarShipItem from './StarShipItem.vue';
-import TheHeader from '../TheHeader';
+import NavBar from '../NavBar';
 import SearchFilter from '../common/SearchFilter';
 
 export default {
   components: {
     'starship-item': StarShipItem,
-    'app-header': TheHeader,
+    'app-nav': NavBar,
     'search-filter': SearchFilter
   },
   data() {

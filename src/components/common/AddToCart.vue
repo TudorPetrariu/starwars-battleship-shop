@@ -33,7 +33,7 @@ export default {
         title: 'Congrats !!',
         variant: 'success',
         toaster: 'b-toaster-bottom-right',
-        autoHideDelay: 700
+        autoHideDelay: 70000
       });
     }
   }

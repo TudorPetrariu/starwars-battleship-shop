@@ -1,29 +1,29 @@
 <template>
-  <b-nav id="nav" pills small class="container">
-    <b-navbar-brand type="light" to="/">StarShips</b-navbar-brand>
-    <div class="ml-auto d-flex align-items-center">
-      <b-nav-item exact :to="{ name: 'Home' }">Home </b-nav-item>
-      <b-nav-item :to="{ name: 'StarShipList' }">
-        StarShips
-      </b-nav-item>
-      <mini-cart />
-      <b-nav-item v-if="ordersHistory.length" :to="{ name: 'OrderHistory' }">
-        Orders
-      </b-nav-item>
-    </div>
-  </b-nav>
+  <div>
+    <b-jumbotron class="home-header">
+      <template v-slot:header> <i class="fab fa-medium"></i> </template>
+
+      <template v-slot:lead>
+        This is a simple hero unit, a simple jumbotron-style component for
+        calling extra attention to featured content or information.
+      </template>
+
+      <hr class="my-4" />
+
+      <p>
+        It uses utility classes for typography and spacing to space content out
+        within the larger container.
+      </p>
+
+      <search-filters />
+    </b-jumbotron>
+  </div>
 </template>
 
 <script>
-import MiniCart from '../components/cart/MiniCart.vue';
+import SearchFilter from './common/SearchFilter.vue';
+
 export default {
-  components: {
-    'mini-cart': MiniCart
-  },
-  computed: {
-    ordersHistory() {
-      return this.$store.getters['cart/getOrdersHistory'];
-    }
-  }
+  components: { 'search-filters': SearchFilter }
 };
 </script>
