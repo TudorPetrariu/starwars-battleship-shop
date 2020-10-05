@@ -2,55 +2,20 @@
   <div id="home">
     <app-nav />
     <app-header />
-    <b-card v-for="ship in showResults" :key="ship.model" class="container">
-      <template v-slot:header>
-        <h4 class="mb-0 text-center">{{ ship.name }}</h4>
-      </template>
-
-      <b-card-body>
-        <b-card-title>Model {{ ship.model }}</b-card-title>
-        <b-card-sub-title class="mb-2"
-          >Length: {{ ship.length }}</b-card-sub-title
-        >
-        <b-card-text> Cargo :{{ ship.cargo_capacity }} </b-card-text>
-      </b-card-body>
-
-      <span class="badge badge-pill badge-primary">
-        {{ ship.manufacturer }}
-      </span>
-
-      <b-list-group flush>
-        <b-list-group-item>Class : {{ ship.starship_class }}</b-list-group-item>
-
-        <b-list-group-item>
-          Max Speed : {{ ship.max_atmosphering_speed }}
-        </b-list-group-item>
-        <b-list-group-item>
-          HyperDrive Rating : {{ ship.hyperdrive_rating }}
-        </b-list-group-item>
-      </b-list-group>
-
-      <b-card-body>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-      </b-card-body>
-    </b-card>
+    <searched-starship />
   </div>
 </template>
 
 <script>
 import NavBar from './NavBar.vue';
 import TheHeader from './TheHeader.vue';
+import SearchedStarShip from './starships/SearchedStarShip.vue';
 
 export default {
   components: {
     'app-nav': NavBar,
-    'app-header': TheHeader
-  },
-  computed: {
-    showResults() {
-      return this.$store.getters['battleships/getSearchedBattleShip'];
-    }
+    'app-header': TheHeader,
+    'searched-starship': SearchedStarShip
   }
 };
 </script>

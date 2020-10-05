@@ -1,7 +1,16 @@
 body {
-  background-color: rosybrown;
+  font-family: 'Proxima Nova', Verdana, 'Avenir Next';
+  background-image: url('../images/stars-wallpaper-1.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #starships {
-  background-color: royalblue;
+  background: url('../images/StarShipsPageBackground.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }

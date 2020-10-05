@@ -3,9 +3,12 @@
     <app-nav />
     <b-container>
       <b-jumbotron
-        ><h1>The Star Wars battleships that you've ever wanted</h1></b-jumbotron
+        ><h1>
+          The Star Wars API is the world's first quantified and
+          programmatically-formatted set of Star Wars data.
+        </h1></b-jumbotron
       >
-      <search-filter />
+      <searched-starship />
       <b-row cols-lg="3">
         <starship-item
           v-for="pages in showNext10Items"
@@ -14,6 +17,7 @@
           class="my-2"
         />
       </b-row>
+
       <!-- Pagination -->
       <div>
         <div class="my-4">
@@ -44,12 +48,14 @@
 import StarShipItem from './StarShipItem.vue';
 import NavBar from '../NavBar';
 import SearchFilter from '../common/SearchFilter';
+import SearchedStarShip from './SearchedStarShip';
 
 export default {
   components: {
     'starship-item': StarShipItem,
     'app-nav': NavBar,
-    'search-filter': SearchFilter
+    'search-filter': SearchFilter,
+    'searched-starship': SearchedStarShip
   },
   data() {
     return {

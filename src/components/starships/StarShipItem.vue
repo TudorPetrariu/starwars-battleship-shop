@@ -61,8 +61,8 @@
 </template>
 
 <script>
-import AddToCart from '../common/AddToCart.vue';
-import DetailsPageButton from '../common/DetailsPageButton.vue';
+import AddToCart from '../common/AddToCart';
+import DetailsPageButton from '../common/DetailsPageButton';
 
 export default {
   components: {

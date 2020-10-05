@@ -4,26 +4,32 @@
       <template v-slot:header> <i class="fab fa-medium"></i> </template>
 
       <template v-slot:lead>
-        This is a simple hero unit, a simple jumbotron-style component for
-        calling extra attention to featured content or information.
+        The world's first quantified and programmatically-accessible data source
+        for all the data from the Star Wars canon universe!
       </template>
-
       <hr class="my-4" />
-
       <p>
-        It uses utility classes for typography and spacing to space content out
-        within the larger container.
+        We've taken all the rich contextual stuff from the universe and
+        formatted into something easier to consume with software. Then we went
+        and stuck an API on the front so you can access it all!
       </p>
-
-      <search-filters />
+      <b-button @click="scrollToElement"
+        >Look into the stars for a StarShip</b-button
+      >
+      <b-button to="/starships">Explore all</b-button>
     </b-jumbotron>
   </div>
 </template>
 
 <script>
-import SearchFilter from './common/SearchFilter.vue';
-
 export default {
-  components: { 'search-filters': SearchFilter }
+  methods: {
+    scrollToElement() {
+      const el = document.querySelector('.scroll-to');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  }
 };
 </script>

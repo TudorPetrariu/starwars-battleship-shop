@@ -1,5 +1,6 @@
 $primary-color: #b9b9bb;
 $secondary-color: rgba(67, 87, 98, 0.575);
+$shadow-color: #c9c7af;
 $box-shadow-one: 0px 5px 10px rgb(255, 255, 255);
 $box-shadow-two: 0px 10px 40px rgb(255, 255, 255);
 $whitey: #f0f0f0;
@@ -8,16 +9,7 @@ $distance: 60px;
 $easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-
-// body {
-//   font-family: 'Proxima Nova', Verdana, 'Avenir Next';
-//   background-image: url('../images/rename.jpg');
-//   background-attachment: fixed;
-//   background-position: center;
-//   background-size: cover;
-//   background-repeat: no-repeat;
-// }

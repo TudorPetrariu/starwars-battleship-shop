@@ -42,7 +42,6 @@ const getters = {
       (ship) => ship.name === name
     );
     state.battleShipDetails = findShipDetails;
-    console.log(state.battleShipDetails);
     return state.battleShipDetails;
   }
 };
@@ -64,6 +63,7 @@ const actions = {
   },
   async fetchSearchedBattleship({ commit }, payload) {
     const url = 'https://swapi.dev/api/starships/?search=';
+
     try {
       const response = await fetch(`${url} ${payload}`);
       const data = await response.json();
