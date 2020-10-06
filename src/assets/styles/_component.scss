@@ -45,8 +45,8 @@
   }
 }
 #nav {
-  background-color: #1b2f364b;
-  border: 2px solid white;
+  background-color: #181d2098;
+  border: 2px solid $whitey;
   border-radius: 15px;
   border-left: transparent;
   border-right: transparent;
@@ -58,13 +58,12 @@
 
 .nav-item {
   list-style-type: none;
-  color: $whitey;
   position: relative;
   text-transform: uppercase;
   padding-bottom: 8px;
 
   a {
-    color: rgb(255, 255, 255);
+    color: $whitey;
   }
   .router-link-active {
     &:before,
@@ -108,9 +107,7 @@
     }
   }
 }
-.home-header {
-  border-radius: 40px;
-}
+
 * {
   margin: 0;
   padding: 0;
@@ -146,7 +143,7 @@ body {
       outline: none;
       border-radius: 50px;
 
-      background-color: #24233a;
+      background-color: #181d20;
 
       padding: 15px;
       color: #24233a;
@@ -170,7 +167,7 @@ body {
       pointer-events: none;
 
       path {
-        fill: $primary-color;
+        fill: #b9996e;
         transition: 0.4s linear;
       }
     }
@@ -182,15 +179,30 @@ body {
         padding-right: 50px;
         box-shadow: inset 0px 0px 10px $shadow-color;
       }
-
-      .search-box-icon {
-        path {
-          fill: #24233a;
-        }
-      }
     }
   }
 }
 .scroll-to {
   margin-top: 900px;
+}
+
+#home-header {
+  box-shadow: none;
+  h1 {
+    color: #b9996e;
+  }
+  hr {
+    border-color: #b9996e;
+  }
+  margin-top: 10rem;
+  background-color: #181d2098;
+  color: $whitey;
+  .search-redirector {
+    background-color: #b9996e;
+    color: $whitey;
+    &:hover {
+      background-color: #181d2098;
+      color: #b9996e;
+    }
+  }
 }

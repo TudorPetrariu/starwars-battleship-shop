@@ -39,15 +39,14 @@
               class="d-flex justify-content-between align-items-center text-white"
             >
               Megalight
-              <v-b-tooltip>
                 <b-badge
+                  v-b-tooltip.html
                   style="cursor: pointer;"
-                  title="A megalight, abbreviated MGLT, was a standard unit of distance in space."
+                  title="<strong> A megalight, abbreviated MGLT, was a standard unit of distance in space.</strong>"
                   variant="primary"
                   pill
                   >{{ getbattleShipInfo.MGLT }} MGLT</b-badge
                 >
-              </v-b-tooltip>
             </b-list-group-item>
             <b-list-group-item
               class="d-flex justify-content-between align-items-center text-white"
@@ -119,7 +118,6 @@
             <br />
             <small>
               <b-badge>Opening crawl</b-badge> {{ item.opening_crawl }}</small
-            >
             <br />
           </b-jumbotron>
         </div>
