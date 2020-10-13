@@ -14,8 +14,9 @@ Vue.use(BootstrapVueIcons);
 
 import './assets/styles/main.scss';
 
+export const bus = new Vue();
+
 require('regenerator-runtime/runtime');
-Vue.prototype.$eventBus = new Vue();
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 Vue.component('BIconCart', BIconCart);

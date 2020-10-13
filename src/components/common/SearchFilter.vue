@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import { bus } from '../../main';
 export default {
   data() {
     return {
@@ -68,10 +69,12 @@ export default {
   },
   methods: {
     fetchStarShip() {
-      this.$store.dispatch(
-        'battleships/fetchSearchedBattleship',
-        this.searchTerm
-      );
+      bus.$emit('search-value', this.searchTerm);
+
+      // this.$store.dispatch(
+      //   'battleships/fetchSearchedBattleship',
+      //   this.searchTerm
+      // );
     },
     filterCategories() {
       switch (this.selectedCategory) {

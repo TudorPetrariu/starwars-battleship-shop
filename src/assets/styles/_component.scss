@@ -13,7 +13,7 @@
   color: #635341;
 }
 .card {
-  background-color: $secondary-color;
+  background-color: #2a3033ce;
   box-shadow: $box-shadow-one;
   &:hover {
     box-shadow: $box-shadow-two;
@@ -45,7 +45,7 @@
   }
 }
 #nav {
-  background-color: #181d2098;
+  background-color: #181d20e0;
   border: 2px solid $whitey;
   border-radius: 15px;
   border-left: transparent;
