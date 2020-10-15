@@ -1,19 +1,20 @@
 <template>
-  <div>
+  <div id="starships">
     <app-nav />
+    <div>
+      <b-jumbotron
+        class="d-flex flex-column justify-content-center align-items-center"
+        ><h1 class="p-5">
+          The Star Wars API is the world's first quantified and
+          programmatically-formatted set of Star Wars data.
+        </h1>
+      </b-jumbotron>
 
-    <div id="starships">
       <b-container>
-        <b-jumbotron
-          ><h1>
-            The Star Wars API is the world's first quantified and
-            programmatically-formatted set of Star Wars data.
-          </h1></b-jumbotron
-        >
-        <searched-starship />
+        <searched-starship id="starships-search-bar" />
         <b-row cols-lg="3">
           <starship-item
-            v-for="pages in getBattleShip"
+            v-for="pages in filterBattleShips"
             :key="pages.model"
             :pages="pages"
             class="my-2"
@@ -76,12 +77,11 @@ export default {
       return this.$store.getters['battleships/getBattleShips'];
     },
     filterBattleShips() {
-      const result = this.getBattleShip.filter((product) => {
+      return this.getBattleShip.filter((product) => {
         return product.model
           .toLowerCase()
           .includes(this.searchValue.toLowerCase());
       });
-      console.log(result);
     }
     // showNext10Items() {
     //   let start = (this.currentPage - 1) * this.perPage;

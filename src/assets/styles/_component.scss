@@ -195,7 +195,7 @@ body {
     border-color: #b9996e;
   }
   margin-top: 10rem;
-  background-color: #181d2098;
+  background-color: transparent;
   color: $whitey;
   .search-redirector {
     background-color: #b9996e;
@@ -204,5 +204,17 @@ body {
       background-color: #181d2098;
       color: #b9996e;
     }
+  }
+}
+
+#starships-search-bar {
+  margin-top: 5rem;
+  .form-control {
+    border-radius: 50px;
+    background-color: $whitey;
+  }
+  select {
+    border-radius: 50px;
+    background-color: $whitey;
   }
 }

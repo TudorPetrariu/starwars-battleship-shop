@@ -2,9 +2,6 @@
   <div>
     <app-nav />
     <h3>This is the cart page</h3>
-    <div v-if="!cartItems.length" class="mt-5">
-      <img src="../../assets/images/empty-cart.png" alt="empty-cart-icon" />
-    </div>
     <proceed-to-checkout-button />
     <b-button :to="{ name: 'StarShipList' }">Back to StarShips</b-button>
     <div v-for="item in cartItems" :key="item.name">

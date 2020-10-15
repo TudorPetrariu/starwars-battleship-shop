@@ -21,9 +21,6 @@
       </div>
     </div>
     <b-input-group v-if="$route.path === '/starships'" class="mb-5">
-      <template v-slot:prepend>
-        <b-input-group-text>StarShips</b-input-group-text>
-      </template>
       <b-form-input
         v-model="searchTerm"
         type="text"
@@ -37,7 +34,7 @@
         v-model="selectedCategory"
         @change="filterCategories"
       >
-        <option value="All" disabled selected>Filter by:</option>
+        <option value="All" disabled selected> Filter by:</option>
         <option v-for="(category, index) in categories" :key="index">{{
           category
         }}</option>
