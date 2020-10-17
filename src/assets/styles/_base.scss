@@ -7,9 +7,6 @@ $whitey: #f0f0f0;
 $duration: 0.4s;
 $distance: 60px;
 $easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+$home-image: url('../images/home-background.png');
+$background-opacity: 0.7;
+$starships-header-img: '../images/1.jpg';

@@ -13,13 +13,22 @@
   color: #635341;
 }
 .card {
-  background-color: #2a3033ce;
+  h5 {
+    padding: 10px 0 10px 0;
+    border: 1px solid $whitey;
+    border-left: none;
+    border-right: none;
+    border-radius: 7px;
+  }
+  border-radius: 20px;
+  background-color: #122d3b;
   box-shadow: $box-shadow-one;
   &:hover {
     box-shadow: $box-shadow-two;
     cursor: pointer;
   }
 }
+
 .list-group {
   margin-top: 3em;
 }
@@ -114,10 +123,6 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #26547c;
-}
-
 .container-box {
   width: 100%;
   height: 100%;
@@ -188,21 +193,40 @@ body {
 
 #home-header {
   box-shadow: none;
+  margin-top: 15rem;
+  background-color: transparent;
+  color: $whitey;
+  h3 {
+  }
   h1 {
     color: #b9996e;
   }
   hr {
     border-color: #b9996e;
   }
-  margin-top: 10rem;
-  background-color: transparent;
-  color: $whitey;
+
   .search-redirector {
     background-color: #b9996e;
     color: $whitey;
     &:hover {
       background-color: #181d2098;
       color: #b9996e;
+    }
+  }
+}
+#starships-list-page {
+  .jumbotron {
+    margin-top: 5rem;
+    background: linear-gradient(to bottom, #04151f2f, #010f1680, #05121d3d),
+      url('../images/1.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 60vh;
+    h1 {
+      color: $whitey;
+      text-align: center;
     }
   }
 }

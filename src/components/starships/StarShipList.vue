@@ -1,5 +1,5 @@
 <template>
-  <div id="starships">
+  <div id="starships-list-page">
     <app-nav />
     <div>
       <b-jumbotron
