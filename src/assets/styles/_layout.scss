@@ -3,10 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-$starships-background: url('../images/1.jpg');
-$background-color: linear-gradient(to left, #38637c00, #010f168a, #05121dfb);
 
 body {
+  height: 50%;
   font-family: 'Proxima Nova', Verdana, 'Avenir Next';
   background-image: $background-color, $home-image;
   background-attachment: fixed;
@@ -16,7 +15,7 @@ body {
 }
 
 #starships-list-page {
-  background: linear-gradient(to bottom, #04151fd0, #010f16d7, #05121d),
+  background: linear-gradient(to bottom, #03101dec, #010f16d3, #10202b),
     $starships-background;
   background-attachment: fixed;
   background-position: center;

@@ -1,16 +1,18 @@
 <template>
   <b-navbar id="nav" sticky small>
-    <b-navbar-brand type="light" to="/">StarShips</b-navbar-brand>
-    <div class="ml-auto d-flex align-items-center">
-      <b-nav-item exact :to="{ name: 'Home' }">Home </b-nav-item>
-      <b-nav-item :to="{ name: 'StarShipList' }">
-        StarShips
-      </b-nav-item>
-      <mini-cart />
-      <b-nav-item v-if="ordersHistory.length" :to="{ name: 'OrderHistory' }">
-        Orders
-      </b-nav-item>
-    </div>
+    <b-container>
+      <b-navbar-brand type="light" to="/">StarShips</b-navbar-brand>
+      <div class="ml-auto d-flex align-items-center">
+        <b-nav-item exact :to="{ name: 'Home' }">Home </b-nav-item>
+        <b-nav-item :to="{ name: 'StarShipList' }">
+          StarShips
+        </b-nav-item>
+        <mini-cart />
+        <b-nav-item v-if="ordersHistory.length" :to="{ name: 'OrderHistory' }">
+          Orders
+        </b-nav-item>
+      </div>
+    </b-container>
   </b-navbar>
 </template>
 

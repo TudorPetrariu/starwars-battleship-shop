@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <b-card-group deck>
-      <b-card overlay class="mt-5" style="min-height: 400px;">
+      <b-card overlay class="mt-5" style="min-height: 500px; max-width: 300px;">
         <h5 class="text-center text-white">
           <strong>
             <em>{{ pages.model }}</em>
@@ -42,13 +42,11 @@
             </b-badge>
             <b-badge class="w-50" pill>{{ pages.length }}</b-badge>
           </b-list-group-item>
-          <b-list-group-item
-            class="d-flex justify-content-between align-items-center"
-          >
-            <b-badge class="w-50" pill>
-              Ship Price
-            </b-badge>
-            <b-badge class="w-50" pill>{{ pages.cost_in_credits }}</b-badge>
+          <b-list-group-item class="d-flex justify-content-end">
+            Credits:
+            <span class="text-white">
+              {{ pages.cost_in_credits }}
+            </span>
           </b-list-group-item>
         </b-list-group>
         <b-card-footer class="d-flex p-2">

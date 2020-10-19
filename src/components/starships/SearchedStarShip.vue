@@ -1,6 +1,39 @@
 <template>
-  <div>
-    <search-filters />
+  <b-container>
+    <b-card no-body class="overflow-hidden search-ship-card">
+      <b-row no-gutters>
+        <b-col md="6">
+          <b-card-img
+            :src="require('../../assets/images/secondary-header-image.png')"
+            alt="Image"
+            class="rounded-0"
+          ></b-card-img>
+        </b-col>
+        <b-col md="6">
+          <b-card-body title="Horizontal Card">
+            <b-card-text>
+              We've taken all the rich contextual stuff from the universe and
+              formatted into something easier to consume with software. Then we
+              went and stuck an API on the front so you can access it all!
+            </b-card-text>
+            <search-filters />
+          </b-card-body>
+        </b-col>
+      </b-row>
+    </b-card>
+    <!-- <b-row cols="12">
+      <div class="d-flex justify-content-start align-items-center">
+        <div class="col-6">
+        </div>
+        <div class="col-md-4">
+          <h4 class="my-3 text-white">
+            We've taken all the rich contextual stuff from the universe and
+            formatted into something easier to consume with software. Then we
+            went and stuck an API on the front so you can access it all!
+          </h4>
+        </div>
+      </div>
+    </b-row> -->
     <b-card v-for="ship in showResults" :key="ship.model" class="container">
       <template v-slot:header>
         <h4 class="mb-0 text-center">{{ ship.name }}</h4>
@@ -33,7 +66,7 @@
         <a href="#" class="card-link">Another link</a>
       </b-card-body>
     </b-card>
-  </div>
+  </b-container>
 </template>
 
 <script>
