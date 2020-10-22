@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="home-page">
     <app-nav />
     <app-header />
     <searched-starship />

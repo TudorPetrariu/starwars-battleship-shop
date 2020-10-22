@@ -3,19 +3,22 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
-  height: 50%;
+  height: 100vh;
   font-family: 'Proxima Nova', Verdana, 'Avenir Next';
+}
+
+#home-page {
   background-image: $background-color, $home-image;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  height: 100vh;
 }
 
 #starships-list-page {
-  background: linear-gradient(to bottom, #03101dec, #010f16d3, #10202b),
+  background: linear-gradient(#e9e9e9ec, #d8d8d8, #e1e6e3),
     $starships-background;
   background-attachment: fixed;
   background-position: center;
