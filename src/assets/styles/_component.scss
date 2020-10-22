@@ -55,7 +55,7 @@
   }
 }
 #nav {
-  background-color: #051011e1;
+  background-color: #020b0fe3;
   border: 1px solid $whitey;
   border-radius: 15px;
   border-left: transparent;
@@ -198,7 +198,6 @@
 }
 #home-header {
   box-shadow: none;
-  margin-top: 15rem;
   background-color: transparent;
   color: $whitey;
   h3 {
@@ -222,12 +221,8 @@
 #starships-list-page {
   .jumbotron {
     margin-top: 5rem;
-    background: linear-gradient(to bottom, #04151f2f, #010f1680, #05121d3d),
-      url('../images/starship-list-bakground.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    // background: linear-gradient(to bottom, #04151f2f, #010f1680, #05121d3d),
+    //   url('../images/starship-list-bakground.jpg');
     height: 60vh;
     h1 {
       color: $whitey;
@@ -247,3 +242,80 @@
     background-color: $whitey;
   }
 }
+
+#home-parralax {
+  .para-image-1,
+  .para-image-2,
+  .para-image-3 {
+    position: relative;
+  }
+  height: 100vh;
+  .para-image-1 {
+    background-image: $background-color, $home-image;
+    min-height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    span {
+      color: #b9996e;
+    }
+  }
+  .para-image-2 {
+    background-image: linear-gradient(to right, #09181a88, #0b1c1f9c, #09171a18),
+      $home-2-background;
+    min-height: 400px;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .para-image-3 {
+    background-image: linear-gradient(to left, #09181a65, #0b1c1f83, #09171a48),
+      $home-3-background;
+    min-height: 400px;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+.section {
+  text-align: center;
+  padding: 50px 80px;
+  p {
+    font-size: 24px;
+  }
+  &.section-light {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  &.section-dark {
+    background-color: #f4f4f4;
+    color: #666;
+  }
+}
+.para-text {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 37px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+}
+.para-text .borders {
+  background-color: #181d2044;
+  color: #fff;
+  padding: 20px;
+  &.trans {
+    background-color: transparent;
+  }
+}
+
+// @media (max-width: 568px) {
+//   .para-image-1 .para-image-2 .para-image-3 {
+//     background-attachment: scroll;
+//   }
+// }
