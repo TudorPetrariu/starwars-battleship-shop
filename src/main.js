@@ -20,6 +20,9 @@ require('regenerator-runtime/runtime');
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 Vue.component('BIconCart', BIconCart);
+import VueScrollmagic from 'vue-scrollmagic';
+Vue.use(VueScrollmagic);
+
 const router = new VueRouter({ routes, mode: 'history' });
 new Vue({
   el: '#app',

@@ -1,6 +1,54 @@
 <template>
-  <div id="starships-list-page">
-    <app-nav />
+  <div>
+    <header>
+      <h1>Welcome to StarshipList Details Page</h1>
+    </header>
+    <section class="ship-details">
+      <div id="trigger" class="ship-title">
+        <h2>
+          About or Ship Name ?
+        </h2>
+      </div>
+      <div class="about-ship-pages">
+        <div class="ship-movie-page">
+          <h2>Movie 1</h2>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque
+            natus excepturi sunt, magnam nisi error. Dicta quaerat repellat sunt
+            facere iste ab ipsam quae totam amet voluptas voluptates ut
+            dignissimos perspiciatis assumenda sapiente, nihil velit architecto,
+            optio dolorum beatae iure illum adipisci. Possimus voluptates eaque
+            quaerat illum a, sint odio?
+          </p>
+        </div>
+        <div class="ship-movie-page">
+          <h2>Movie 2</h2>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque
+            natus excepturi sunt, magnam nisi error. Dicta quaerat repellat sunt
+            facere iste ab ipsam quae totam amet voluptas voluptates ut
+            dignissimos perspiciatis assumenda sapiente, nihil velit architecto,
+            optio dolorum beatae iure illum adipisci. Possimus voluptates eaque
+            quaerat illum a, sint odio?
+          </p>
+        </div>
+        <div class="ship-movie-page">
+          <h2>Movie 3</h2>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque
+            natus excepturi sunt, magnam nisi error. Dicta quaerat repellat sunt
+            facere iste ab ipsam quae totam amet voluptas voluptates ut
+            dignissimos perspiciatis assumenda sapiente, nihil velit architecto,
+            optio dolorum beatae iure illum adipisci. Possimus voluptates eaque
+            quaerat illum a, sint odio?
+          </p>
+        </div>
+      </div>
+    </section>
+    <footer class="starship-details-footer">
+      <h2>Swapi Dev</h2>
+    </footer>
+    <!-- <app-nav />
     <div>
       <b-jumbotron
         class="d-flex flex-column justify-content-center align-items-center"
@@ -21,7 +69,6 @@
           />
         </b-row>
 
-        <!-- Pagination -->
         <div>
           <div class="my-4">
             <ul
@@ -45,9 +92,8 @@
             </ul>
           </div>
         </div>
-        <!-- End of Pagination -->
       </b-container>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -56,6 +102,7 @@ import StarShipItem from './StarShipItem.vue';
 import NavBar from '../NavBar';
 import SearchedStarShip from './SearchedStarShip';
 import { bus } from '../../main';
+import ScrollMagic from 'scrollmagic';
 
 export default {
   components: {
@@ -95,6 +142,17 @@ export default {
       this.searchValue = search;
       console.log(this.searchValue);
     });
+  },
+
+  mounted() {
+    const controller = new ScrollMagic.Controller();
+    new ScrollMagic.Scene({
+      duration: '200%',
+      triggerElement: '#trigger', //scroll distance for scene
+      triggerHook: 0
+    })
+      .setPin('#trigger') //pins the element for the scenes duration
+      .addTo(controller);
   },
   methods: {
     prevPage() {

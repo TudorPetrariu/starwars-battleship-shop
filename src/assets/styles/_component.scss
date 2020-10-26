@@ -218,18 +218,19 @@
     }
   }
 }
-#starships-list-page {
-  .jumbotron {
-    margin-top: 5rem;
-    // background: linear-gradient(to bottom, #04151f2f, #010f1680, #05121d3d),
-    //   url('../images/starship-list-bakground.jpg');
-    height: 60vh;
-    h1 {
-      color: $whitey;
-      text-align: center;
-    }
-  }
-}
+// #starships-list-page {
+//   .jumbotron {
+//     margin-top: 5rem;
+//     // background: grayscale($secondary-color);
+//     // background: linear-gradient(to bottom, #04151f2f, #010f1680, #05121d3d),
+//     //   url('../images/starship-list-bakground.jpg');
+//     height: 60vh;
+//     h1 {
+//       color: $whitey;
+//       text-align: center;
+//     }
+//   }
+// }
 
 #starships-search-bar {
   margin-top: 5rem;
@@ -319,3 +320,55 @@
 //     background-attachment: scroll;
 //   }
 // }
+.ship-details {
+  height: 300vh;
+  display: flex;
+
+  .ship-title {
+    margin: 0 !important;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  p {
+    width: 80%;
+    font-size: 18px;
+    line-height: 30px;
+    color: white;
+  }
+  .about-ship-pages {
+    width: 50%;
+    div:nth-child(1) {
+      background-color: red;
+    }
+    div:nth-child(2) {
+      background-color: rgb(0, 30, 128);
+    }
+    div:nth-child(3) {
+      background-color: rgb(56, 134, 89);
+    }
+  }
+  .ship-movie-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+.starship-details-footer {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: bisque;
+}
+header {
+  height: 100vh;
+  background-color: rgb(132, 45, 34);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
