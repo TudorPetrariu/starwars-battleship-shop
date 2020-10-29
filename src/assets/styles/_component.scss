@@ -321,7 +321,7 @@
 //   }
 // }
 .ship-details {
-  height: 300vh;
+  max-height: 300vh;
   display: flex;
 
   .ship-title {
@@ -365,7 +365,7 @@
   align-items: center;
   background-color: bisque;
 }
-header {
+.details-page-header {
   height: 100vh;
   background-color: rgb(132, 45, 34);
   display: flex;

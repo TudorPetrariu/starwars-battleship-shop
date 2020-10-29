@@ -1,7 +1,7 @@
 <template>
   <div>
     <app-nav />
-    <header>
+    <header class="details-page-header">
       <h1>Welcome to StarshipList Details Page</h1>
     </header>
     <section class="ship-details">
@@ -178,7 +178,6 @@ export default {
     };
   },
 
-  // Use a Watch property maybe for the magic scroll length ?
   computed: {
     getbattleShipInfo() {
       return this.$store.getters['battleships/getBattleShipDetails'](this.id);
@@ -189,14 +188,19 @@ export default {
     }
   },
   mounted() {
-    const controller = new ScrollMagic.Controller();
-    new ScrollMagic.Scene({
-      duration: '200%',
-      triggerElement: '#trigger-magic-scroll', //scroll distance for scene
-      triggerHook: 0
-    })
-      .setPin('#trigger-magic-scroll') //pins the element for the scenes duration
-      .addTo(controller);
+    this.startMagicScroll();
+  },
+  methods: {
+    startMagicScroll() {
+      const controller = new ScrollMagic.Controller();
+      new ScrollMagic.Scene({
+        duration: '100%',
+        triggerElement: '#trigger-magic-scroll', //scroll distance for scene
+        triggerHook: 0
+      })
+        .setPin('#trigger-magic-scroll') //pins the element for the scenes duration
+        .addTo(controller);
+    }
   }
 };
 </script>
