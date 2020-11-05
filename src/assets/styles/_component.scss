@@ -7,6 +7,7 @@
   background-color: #dac09d;
   color: #635341;
 }
+
 .details-page-btn {
   background-color: #ae967e;
   width: 50%;
@@ -14,19 +15,18 @@
 }
 .card {
   border-radius: 20px;
-  background-color: #eeeff0c0;
+  background-color: #e6eaeec0;
   box-shadow: $box-shadow-one;
-  h5 {
-    padding: 10px 0 10px 0;
-    border: 1px solid $whitey;
-    border-left: none;
-    border-right: none;
-    border-radius: 7px;
-  }
-
   &:hover {
     box-shadow: $box-shadow-two;
     cursor: pointer;
+  }
+  .card-title {
+    padding: 0.6rem 0;
+    transform: translateY(-50%);
+    background-color: #222f3d;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
   }
 }
 
@@ -36,6 +36,7 @@
 .list-group-item {
   background-color: transparent;
   border-bottom-color: $shadow-color;
+  border-bottom-style: groove;
 }
 .badge-secondary {
   background-color: #8fb1ab;
@@ -118,12 +119,6 @@
       transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
     }
   }
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 .container-box {

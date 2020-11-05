@@ -2,51 +2,59 @@
   <b-container>
     <b-card-group deck>
       <b-card overlay class="mt-5" style="min-height: 500px; max-width: 300px;">
-        <h5 class="text-center text-white">
-          <strong>
-            <em>{{ pages.model }}</em>
-          </strong>
-        </h5>
-        <b-list-group flush class="d-flex mb-4">
+        <div class="card-title d-flex justify-content-center">
+          <h5>{{ pages.name }}</h5>
+        </div>
+
+        <b-list-group flush class="mb-4">
           <b-list-group-item
-            class="d-flex justify-content-between align-items-center"
+            class="d-flex justify-content-center text-white align-items-center"
           >
-            <b-badge class="w-50" pill>
+            <span class="mr-1">
               HyperDrive Rating
-            </b-badge>
-            <b-badge class="w-50" pill>{{ pages.hyperdrive_rating }}</b-badge>
+            </span>
+
+            <span>
+              <strong>{{ pages.hyperdrive_rating }}</strong></span
+            >
           </b-list-group-item>
 
           <b-list-group-item
-            class="d-flex justify-content-between align-items-center"
+            class="d-flex justify-content-center text-white align-items-center"
           >
-            <b-badge class="w-50" pill>
+            <span class="mr-1">
               Cargo Capacity
-            </b-badge>
-            <b-badge class="w-50" pill>{{ pages.cargo_capacity }}</b-badge>
+            </span>
+            <span>
+              <strong>{{ pages.cargo_capacity }} </strong></span
+            >
           </b-list-group-item>
 
           <b-list-group-item
-            class="d-flex justify-content-between align-items-center"
+            class="d-flex justify-content-center text-white align-items-center"
           >
-            <b-badge class="w-50" pill>
+            <span class="mr-1">
               Passenger Capacity
-            </b-badge>
-            <b-badge class="w-50" pill>{{ pages.passengers }}</b-badge>
+            </span>
+            <span>
+              <strong>{{ pages.passengers }} </strong></span
+            >
           </b-list-group-item>
           <b-list-group-item
-            class="d-flex justify-content-between align-items-center"
+            class="d-flex justify-content-center text-white align-items-center"
           >
-            <b-badge class="w-50" pill>
+            <span class="mr-1">
               Ship Length
-            </b-badge>
-            <b-badge class="w-50" pill>{{ pages.length }}</b-badge>
+            </span>
+            <span>
+              <strong>{{ pages.length }} </strong></span
+            >
           </b-list-group-item>
-          <b-list-group-item class="d-flex justify-content-end">
-            Credits:
+          <b-list-group-item class="d-flex justify-content-around">
             <span class="text-white">
               {{ pages.cost_in_credits }}
             </span>
+            Credits
           </b-list-group-item>
         </b-list-group>
         <b-card-footer class="d-flex p-2">

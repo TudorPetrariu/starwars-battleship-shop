@@ -187,8 +187,20 @@ export default {
       return this.$store.getters['battleships/getbattleShipMovieDetails'];
     }
   },
-  mounted() {
-    this.startMagicScroll();
+
+  ///make page start on top
+  // finish method function and store scroll percentage
+  watch: {
+    getbattleShipMovies: {
+      handler(newVal) {
+        if (newVal) {
+          console.log(newVal.length);
+          // check if userid is available
+          // this.startMagicScroll();
+        }
+      },
+      immediate: true // make this watch function is called when component created
+    }
   },
   methods: {
     startMagicScroll() {
