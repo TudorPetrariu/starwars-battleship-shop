@@ -6,7 +6,8 @@ export const state = {
   battleShipsNextPage: '',
   searchedBattleship: {},
   battleShipDetails: [],
-  battleShipMovieDetails: {}
+  battleShipMovieDetails: {},
+  scrollRate: ''
 };
 
 const mutations = {
@@ -16,6 +17,14 @@ const mutations = {
   },
   setBattleshipDetails: (state, payload) => {
     state.battleShipMovieDetails = payload;
+    state.scrollRate =
+      state.battleShipMovieDetails.length === 1
+        ? '50%'
+        : payload.length === 2
+        ? '100%'
+        : payload.length === 3
+        ? '200%'
+        : '100%';
   },
   setNextPage: (state, payload) => {
     state.starWarsBattleships = state.starWarsBattleships.concat(
@@ -43,6 +52,9 @@ const getters = {
     );
     state.battleShipDetails = findShipDetails;
     return state.battleShipDetails;
+  },
+  getScrollDuration: (state) => {
+    return state.scrollRate;
   }
 };
 
