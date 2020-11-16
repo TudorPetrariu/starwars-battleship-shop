@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <b-card no-body class="overflow-hidden search-ship-card">
+    <b-card no-body class="search-ship-card">
       <b-row no-gutters>
         <b-col md="6">
           <b-card-img
@@ -10,7 +10,7 @@
           ></b-card-img>
         </b-col>
         <b-col md="6">
-          <b-card-body title="Horizontal Card">
+          <b-card-body>
             <b-card-text>
               We've taken all the rich contextual stuff from the universe and
               formatted into something easier to consume with software. Then we

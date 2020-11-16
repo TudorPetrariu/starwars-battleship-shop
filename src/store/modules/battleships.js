@@ -19,12 +19,12 @@ const mutations = {
     state.battleShipMovieDetails = payload;
     state.scrollRate =
       state.battleShipMovieDetails.length === 1
-        ? '50%'
+        ? '40%'
         : payload.length === 2
         ? '100%'
         : payload.length === 3
         ? '200%'
-        : '100%';
+        : '';
   },
   setNextPage: (state, payload) => {
     state.starWarsBattleships = state.starWarsBattleships.concat(

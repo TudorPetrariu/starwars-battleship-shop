@@ -8,7 +8,7 @@
       <div id="trigger-magic-scroll" class="ship-title">
         <h2>
           {{ getbattleShipInfo.model }}
-          <b-badge class="text-danger test" variant="primary" pill>{{
+          <b-badge class="text-danger" variant="primary" pill>{{
             getbattleShipMovies.length
           }}</b-badge>
         </h2>
@@ -30,7 +30,6 @@
             <small> Director {{ item.director }}</small>
             <br />
           </h2>
-
           <p><b-badge>Opening crawl</b-badge> {{ item.opening_crawl }}</p>
         </div>
       </div>
@@ -57,7 +56,6 @@ export default {
   computed: {
     getbattleShipInfo() {
       return this.$store.getters['battleships/getBattleShipDetails'](this.id);
-      console.log(this.moviesLength);
     },
     getbattleShipMovies() {
       return this.$store.getters['battleships/getbattleShipMovieDetails'];
@@ -67,8 +65,7 @@ export default {
     }
   },
 
-  ///make page start on top
-  // finish method function and store scroll percentage
+  ///page not starting on top
   watch: {
     getbattleShipMovies: {
       handler(newVal) {
@@ -76,13 +73,12 @@ export default {
           this.startMagicScroll();
         }
       },
-      immediate: true // make this watch function is called when component created
+      immediate: true
     }
   },
   methods: {
     startMagicScroll() {
       if (document.getElementsByClassName('ship-details').length > 0) {
-        console.log(this.getScrollDuration);
         const controller = new ScrollMagic.Controller();
         new ScrollMagic.Scene({
           duration: `${this.getScrollDuration}`,

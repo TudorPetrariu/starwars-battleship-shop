@@ -15,13 +15,13 @@
 }
 .card {
   border-radius: 20px;
-  background-color: #e6eaeec0;
-  box-shadow: $box-shadow-one;
+  background-color: #101820de;
   &:hover {
     box-shadow: $box-shadow-two;
     cursor: pointer;
   }
   .card-title {
+    box-shadow: $box-shadow-one;
     padding: 0.6rem 0;
     transform: translateY(-50%);
     background-color: #222f3d;
@@ -188,8 +188,7 @@
 .scroll-to {
 }
 .search-ship-card {
-  margin-top: 900px;
-  padding: 0;
+  margin-top: 5em;
 }
 #home-header {
   box-shadow: none;
@@ -213,19 +212,6 @@
     }
   }
 }
-// #starships-list-page {
-//   .jumbotron {
-//     margin-top: 5rem;
-//     // background: grayscale($secondary-color);
-//     // background: linear-gradient(to bottom, #04151f2f, #010f1680, #05121d3d),
-//     //   url('../images/starship-list-bakground.jpg');
-//     height: 60vh;
-//     h1 {
-//       color: $whitey;
-//       text-align: center;
-//     }
-//   }
-// }
 
 #starships-search-bar {
   margin-top: 5rem;
@@ -310,11 +296,6 @@
   }
 }
 
-// @media (max-width: 568px) {
-//   .para-image-1 .para-image-2 .para-image-3 {
-//     background-attachment: scroll;
-//   }
-// }
 .ship-details {
   max-height: 300vh;
   display: flex;

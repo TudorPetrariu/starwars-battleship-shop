@@ -3,7 +3,9 @@
     <b-card-group deck>
       <b-card overlay class="mt-5" style="min-height: 500px; max-width: 300px;">
         <div class="card-title d-flex justify-content-center">
-          <h5>{{ pages.name }}</h5>
+          <h5 class="text-white">
+            <em> {{ pages.name }}</em>
+          </h5>
         </div>
 
         <b-list-group flush class="mb-4">
