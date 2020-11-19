@@ -1,7 +1,9 @@
 <template>
   <div>
     <app-nav />
-    <header class="details-page-header">
+    <header
+      class="details-page-header d-flex justify-content-center align-items-center"
+    >
       <h1>Welcome to StarshipList Details Page</h1>
     </header>
     <section class="ship-details">
@@ -17,7 +19,8 @@
         <div
           v-for="item in getbattleShipMovies"
           :key="item.name"
-          class="ship-movie-page"
+          class="ship-movie-page d-flex flex-column justify-content-around align-items-center"
+          :class="{ 'h-100': getbattleShipMovies.length === 1 }"
         >
           <h2>
             Episode {{ item.episode_id }}
@@ -34,7 +37,9 @@
         </div>
       </div>
     </section>
-    <footer class="starship-details-footer">
+    <footer
+      class="starship-details-page-footer d-flex justify-content-center align-items-center"
+    >
       <h2>Swapi Dev</h2>
     </footer>
   </div>
@@ -82,10 +87,10 @@ export default {
         const controller = new ScrollMagic.Controller();
         new ScrollMagic.Scene({
           duration: `${this.getScrollDuration}`,
-          triggerElement: '#trigger-magic-scroll', //scroll distance for scene
+          triggerElement: '#trigger-magic-scroll',
           triggerHook: 0
         })
-          .setPin('#trigger-magic-scroll') //pins the element for the scenes duration
+          .setPin('#trigger-magic-scroll')
           .addTo(controller);
       }
     }

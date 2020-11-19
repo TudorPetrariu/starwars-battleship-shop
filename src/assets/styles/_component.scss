@@ -185,8 +185,7 @@
     }
   }
 }
-.scroll-to {
-}
+
 .search-ship-card {
   margin-top: 5em;
 }
@@ -194,8 +193,6 @@
   box-shadow: none;
   background-color: transparent;
   color: $whitey;
-  h3 {
-  }
   h1 {
     color: #b9996e;
   }
@@ -301,7 +298,6 @@
   display: flex;
 
   .ship-title {
-    margin: 0 !important;
     width: 50%;
     height: 100vh;
     display: flex;
@@ -328,23 +324,15 @@
   }
   .ship-movie-page {
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+
   }
 }
-.starship-details-footer {
+.starship-details-page-footer {
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: bisque;
 }
 .details-page-header {
   height: 100vh;
   background-color: rgb(132, 45, 34);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
 }
