@@ -2,38 +2,66 @@
   <div>
     <app-nav />
     <header
-      class="details-page-header d-flex justify-content-center align-items-center"
+      class="details-page-header d-flex justify-content-center flex-column align-items-center"
     >
       <h1>Welcome to StarshipList Details Page</h1>
+      <br />
+      <p class="text-white">
+        {{ getbattleShipInfo.name }} appeared in
+        <b-badge class="text-warning" variant="dark"
+          >{{ getbattleShipMovies.length }}
+          {{ getbattleShipMovies.length !== 1 ? 'Movies' : 'Movie' }} </b-badge
+        >, scroll down for more details
+      </p>
     </header>
     <section class="ship-details">
       <div id="trigger-magic-scroll" class="ship-title">
-        <h2>
-          {{ getbattleShipInfo.model }}
-          <b-badge class="text-danger" variant="primary" pill>{{
-            getbattleShipMovies.length
-          }}</b-badge>
-        </h2>
+        <div>
+          <h3>
+            {{ getbattleShipInfo.model }}
+            <br />
+            <b-badge class="text-warning" variant="dark"
+              >{{ getbattleShipMovies.length }}
+              {{ getbattleShipMovies.length !== 1 ? 'Movies' : 'Movie' }}
+            </b-badge>
+          </h3>
+          <p class="text-dark">
+            Manufacturer {{ getbattleShipInfo.manufacturer }}
+          </p>
+          <p class="text-dark">
+            HyperDrive Speed {{ getbattleShipInfo.hyperdrive_rating }}
+          </p>
+          <p>
+            Maximum Atmospheric Speed
+            {{ getbattleShipInfo.max_atmospheric_speed }}
+          </p>
+        </div>
       </div>
       <div class="about-ship-pages">
         <div
           v-for="item in getbattleShipMovies"
           :key="item.name"
-          class="ship-movie-page d-flex flex-column justify-content-around align-items-center"
+          class="ship-movie-page d-flex flex-column justify-content-center align-items-center"
           :class="{ 'h-100': getbattleShipMovies.length === 1 }"
         >
-          <h2>
+          <h2 class="mb-5">
             Episode {{ item.episode_id }}
-            <br />
             {{ item.title }}
+            <small
+              ><b-badge class="text-white">{{ item.release_date }}</b-badge>
+            </small>
             <br />
-
-            <small>Year {{ item.release_date }}</small>
+            Producers
+            <small class="text-white"> {{ item.producer }}</small>
             <br />
-            <small> Director {{ item.director }}</small>
+            Director
+            <small class="text-white"> {{ item.director }}</small>
             <br />
           </h2>
-          <p><b-badge>Opening crawl</b-badge> {{ item.opening_crawl }}</p>
+          <p class="mt-5">
+            <b-badge class="text-white">Opening crawl</b-badge>
+            {{ item.opening_crawl }}
+          </p>
         </div>
       </div>
     </section>
@@ -53,9 +81,7 @@ export default {
   components: { 'add-to-cart-buttton': AddToCart, 'app-nav': NavBar },
   props: ['id'],
   data() {
-    return {
-      moviesLength: ''
-    };
+    return {};
   },
 
   computed: {
@@ -83,6 +109,7 @@ export default {
   },
   methods: {
     startMagicScroll() {
+      console.log(this.getbattleShipInfo);
       if (document.getElementsByClassName('ship-details').length > 0) {
         const controller = new ScrollMagic.Controller();
         new ScrollMagic.Scene({

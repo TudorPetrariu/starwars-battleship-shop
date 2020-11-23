@@ -296,6 +296,7 @@
 .ship-details {
   max-height: 300vh;
   display: flex;
+  background-color: rgb(248, 248, 248);
 
   .ship-title {
     width: 50%;
@@ -312,27 +313,43 @@
   }
   .about-ship-pages {
     width: 50%;
+    p{
+      font-size: 24px;
+    }
     div:nth-child(1) {
-      background-color: red;
+      background-color: rgb(55, 67, 75);
     }
     div:nth-child(2) {
-      background-color: rgb(0, 30, 128);
+      background-color: rgb(30, 36, 46);
     }
     div:nth-child(3) {
-      background-color: rgb(56, 134, 89);
+      background-color: rgb(50, 58, 70);
     }
   }
   .ship-movie-page {
     height: 100vh;
+    h2{
+      color: #b9996e;
+    }
+    span{
+      background-color: #b9996e;
+    }
 
   }
 }
 .starship-details-page-footer {
   height: 100vh;
-  background-color: bisque;
+  background-color:transparent;
 }
 .details-page-header {
   height: 100vh;
-  background-color: rgb(132, 45, 34);
+  background: linear-gradient(#040913, #667e9656, #040b18e5),
+  $details-page-starship-bg;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  // background-color:#b9996e;
 
 }
